@@ -31,7 +31,7 @@
 
 #if !defined(Z_PREFIX)
 /* decorates zlib functions with a "z_" prefix to prevent symbol collision. */
-#define Z_PREFIX
+///#define Z_PREFIX
 #endif
 
 #if !defined(MY_ZCALLOC)
@@ -40,7 +40,8 @@
 #endif
 
 #pragma ON_PRAGMA_WARNING_BEFORE_DIRTY_INCLUDE
-#include "./zlib/zlib.h"
+///#include "./zlib/zlib.h"
+#include <zlib.h>
 #pragma ON_PRAGMA_WARNING_AFTER_DIRTY_INCLUDE
 
 ON_BEGIN_EXTERNC
