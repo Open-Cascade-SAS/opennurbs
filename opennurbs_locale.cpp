@@ -842,44 +842,44 @@ ON_Locale ON_Locale::FromWindowsLCID(
 #else
   switch (windows_lcid)
   {
-  case ON_Locale::WindowsLCID::cs_CZ_LCID:
+  case ON_Locale::cs_CZ_LCID:
     return ON_Locale::FromWindowsLCIDAndName(windows_lcid, "cs-CZ" );
     break;
-  case ON_Locale::WindowsLCID::de_DE_LCID:
+  case ON_Locale::de_DE_LCID:
     return ON_Locale::FromWindowsLCIDAndName(windows_lcid, "de-DE" );
     break;
-  case ON_Locale::WindowsLCID::en_US_LCID:
+  case ON_Locale::en_US_LCID:
     return ON_Locale::FromWindowsLCIDAndName(windows_lcid, "en-US" );
     break;
-  case ON_Locale::WindowsLCID::es_ES_LCID:
+  case ON_Locale::es_ES_LCID:
     return ON_Locale::FromWindowsLCIDAndName(windows_lcid, "es-ES" );
     break;
-  case ON_Locale::WindowsLCID::es_ES_tradnl_LCID:
+  case ON_Locale::es_ES_tradnl_LCID:
     return ON_Locale::FromWindowsLCIDAndName(windows_lcid, "es-ES_tradnl" );
     break;
-  case ON_Locale::WindowsLCID::fr_FR_LCID:
+  case ON_Locale::fr_FR_LCID:
     return ON_Locale::FromWindowsLCIDAndName(windows_lcid, "fr-FR" );
     break;
-  case ON_Locale::WindowsLCID::it_IT_LCID:
+  case ON_Locale::it_IT_LCID:
     return ON_Locale::FromWindowsLCIDAndName(windows_lcid, "it-IT" );
     break;
-  case ON_Locale::WindowsLCID::ja_JP_LCID:
+  case ON_Locale::ja_JP_LCID:
     return ON_Locale::FromWindowsLCIDAndName(windows_lcid, "ja-JP" );
     break;
-  case ON_Locale::WindowsLCID::ko_KR_LCID:
+  case ON_Locale::ko_KR_LCID:
     return ON_Locale::FromWindowsLCIDAndName(windows_lcid, "ko-KR" );
     break;
-  case ON_Locale::WindowsLCID::pl_PL_LCID:
+  case ON_Locale::pl_PL_LCID:
     return ON_Locale::FromWindowsLCIDAndName(windows_lcid, "pl-PL" );
     break;
-  case ON_Locale::WindowsLCID::pt_PT_LCID:
+  case ON_Locale::pt_PT_LCID:
     return ON_Locale::FromWindowsLCIDAndName(windows_lcid, "pt-PT" );
     break;
-  case ON_Locale::WindowsLCID::zh_CN_LCID:
+  case ON_Locale::zh_CN_LCID:
     // "Hans" script is implied by BCP 47 and should not be in the language tag
     return ON_Locale::FromWindowsLCIDAndName(windows_lcid, "zh-CN" );
     break;
-  case ON_Locale::WindowsLCID::zh_TW_LCID:
+  case ON_Locale::zh_TW_LCID:
     // "Hant" script is implied by BCP 47 and should not be in the language tag
     return ON_Locale::FromWindowsLCIDAndName(windows_lcid, "zh-TW" );
     break;
@@ -1139,7 +1139,7 @@ ON_Locale ON_Locale::FromAppleName(
     // Apple uses "zh-Hanx" for the "language" name and "zh_CN" for the "locale" name 
     // when identifying OS X string services that might be useful to people who live
     // in the Peoples Republic of China.
-    return ON_Locale::FromWindowsLCIDAndName(ON_Locale::WindowsLCID::zh_CN_LCID, "zh-CN");
+    return ON_Locale::FromWindowsLCIDAndName(ON_Locale::zh_CN_LCID, "zh-CN");
   }
   
   if (ON_String::EqualOrdinal("zh-Hant", -1, apple_name, -1, true) || ON_String::EqualOrdinal("zh-TW", -1, apple_name, -1, true))
@@ -1147,7 +1147,7 @@ ON_Locale ON_Locale::FromAppleName(
     // Apple uses "zh-Hant" for the "language" name and "zh_TW" for the "locale" name 
     // when identifying OS X string services that might be useful to people who live
     // in Tiawan.
-    return ON_Locale::FromWindowsLCIDAndName(ON_Locale::WindowsLCID::zh_TW_LCID, "zh-TW");
+    return ON_Locale::FromWindowsLCIDAndName(ON_Locale::zh_TW_LCID, "zh-TW");
   }
 
   return ON_Locale::FromWindowsName( static_cast<const char*>(buffer) );
@@ -1301,7 +1301,7 @@ public:
 
   static bool Validate_sprintf_s()
   {
-#if defined(ON_COMPILER_CLANG)
+#if defined(ON_COMPILER_CLANG) || defined(ON_COMPILER_GNU)
     // Test formatted printing
     char buffer[64] = { 0 };
     size_t buffer_capacity = (sizeof(buffer) / sizeof(buffer[0])) - 1;
@@ -1320,7 +1320,7 @@ public:
 
   static bool Validate_sprintf_l()
   {
-#if defined(ON_COMPILER_CLANG)
+#if defined(ON_COMPILER_CLANG) || defined(ON_COMPILER_GNU)
 #if defined(ON_RUNTIME_ANDROID)
     // Test formatted printing
     char buffer[64] = { 0 };
@@ -1345,7 +1345,7 @@ public:
 
   static bool Validate_sprintf_s_l()
   {
-#if defined(ON_COMPILER_CLANG)
+#if defined(ON_COMPILER_CLANG) || defined(ON_COMPILER_GNU)
 #if defined(ON_RUNTIME_ANDROID)
     // Test formatted printing
     char buffer[64] = { 0 };
@@ -1382,7 +1382,7 @@ public:
 
   static bool Validate_sscanf_s()
   {
-#if defined(ON_COMPILER_CLANG)
+#if defined(ON_COMPILER_CLANG) || defined(ON_COMPILER_GNU)
     // Test formatted scanning
     double a = ON_UNSET_VALUE;
     // Testing C-runtime - do not using ON_String::Scan
@@ -1399,7 +1399,7 @@ public:
 
   static bool Validate_sscanf_l()
   {
-#if defined(ON_COMPILER_CLANG)
+#if defined(ON_COMPILER_CLANG) || defined(ON_COMPILER_GNU)
 #if defined(ON_RUNTIME_ANDROID)
     // Test formatted scanning
     double a = ON_UNSET_VALUE;
@@ -1424,7 +1424,7 @@ public:
 
   static bool Validate_sscanf_s_l()
   {
-#if defined(ON_COMPILER_CLANG)
+#if defined(ON_COMPILER_CLANG) || defined(ON_COMPILER_GNU)
 #if defined(ON_RUNTIME_ANDROID)
     // Test formatted scanning
     double a = ON_UNSET_VALUE;
@@ -1579,7 +1579,9 @@ bool ON_Locale::SetPeriodAsCRuntimeDecimalPoint()
     if (prev_type != _DISABLE_PER_THREAD_LOCALE && prev_type >= 0)
       _configthreadlocale(prev_type);
 
-#elif defined(ON_COMPILER_CLANG)
+#elif defined(__ANDROID__)
+    //
+#elif defined(ON_COMPILER_CLANG) || defined(ON_COMPILER_GNU)
     // Apple's Clang compiler
     const char* s = setlocale(LC_NUMERIC, "C");
     rc = (0 != s && 'C' == s[0] && 0 == s[1]);

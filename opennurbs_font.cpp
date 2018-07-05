@@ -1009,12 +1009,12 @@ ON_Font::Weight ON_Font::WeightFromWindowsLogfontWeight(
 
   const size_t weight_count = sizeof(weights) / sizeof(weights[0]);
   ON_Font::Weight font_weight = ON_Font::Default.m_font_weight;
-  int delta = std::abs(static_cast<int>(ON_Font::WindowsLogfontWeightFromWeight(font_weight)) - windows_logfont_weight);
+  int delta = abs(static_cast<int>(ON_Font::WindowsLogfontWeightFromWeight(font_weight)) - windows_logfont_weight);
 
   for (size_t i = 0; 0 != delta && i < weight_count; i++)
   {
     // look for a closer match
-    int d = std::abs(static_cast<int>(ON_Font::WindowsLogfontWeightFromWeight(weights[i])) - windows_logfont_weight);
+    int d = abs(static_cast<int>(ON_Font::WindowsLogfontWeightFromWeight(weights[i])) - windows_logfont_weight);
     if (d < delta)
     {
       font_weight = weights[i];

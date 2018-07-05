@@ -343,9 +343,9 @@ bool ON_4iRect::IsSet() const
     );
 }
 
-int ON_4iRect::Width(void) const { return std::abs(right - left); }
+int ON_4iRect::Width(void) const { return abs(right - left); }
 
-int ON_4iRect::Height(void) const { return std::abs(bottom - top); }
+int ON_4iRect::Height(void) const { return abs(bottom - top); }
 
 const ON_2iSize ON_4iRect::Size(void) const { return ON_2iSize(Width(), Height()); }
 

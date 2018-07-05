@@ -25,7 +25,7 @@ Description:
 class ON_CLASS ON_Lock
 {
 public:
-#if defined(ON_COMPILER_CLANG)
+#if defined(ON_COMPILER_CLANG) || defined(ON_COMPILER_GNU)
   ON_Lock() ON_NOEXCEPT;
 #else
   ON_Lock() = default;
@@ -112,7 +112,7 @@ private:
   //         needs to have dll-interface to be used by clients of class 'ON_Lock'
   // m_lock_value is private and all code that manages m_lock_value is explicitly implemented in the DLL.
 private:
-#if defined(ON_COMPILER_CLANG)
+#if defined(ON_COMPILER_CLANG) || defined(ON_COMPILER_GNU)
     std::atomic<int> m_lock_value;
 #else
   std::atomic<int> m_lock_value = ON_Lock::UnlockedValue;

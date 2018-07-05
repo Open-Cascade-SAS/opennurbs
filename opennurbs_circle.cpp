@@ -401,7 +401,7 @@ ON_3dVector ON_Circle::DerivativeAt(
 {
   double r0 = radius;
   double r1 = radius;
-  switch (std::abs(d) % 4)
+  switch (abs(d) % 4)
   {
   case 0:
     r0 *=  cos(t);

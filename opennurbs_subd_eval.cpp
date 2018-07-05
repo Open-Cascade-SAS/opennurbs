@@ -343,8 +343,8 @@ double ON_SubDMatrix::TestEvaluation() const
   
   unsigned int SP_low_precision_index = ON_UNSET_UINT_INDEX;
   
-  ON_SimpleArray< ON_3dPoint > _P(R);
-  ON_3dPoint* SP = _P.Array();
+  ON_SimpleArray<ON_3dPoint> a_P(R);
+  ON_3dPoint* SP = a_P.Array();
 
   ON_SimpleArray< double > _Scol(R);
   double* Scol = _Scol.Array();
