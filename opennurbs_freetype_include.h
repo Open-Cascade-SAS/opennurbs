@@ -277,8 +277,8 @@
 #pragma comment(lib, "\"" OPENNURBS_FREETYPE_LIB_DIR "/" "freetype263_mt.lib" "\"")
 #else
 // Microsoft dynamic library freetype263_staticlib.lib uses DLL C-runtime
-#pragma message ( "Linking with freetype263_staticlib.lib in " OPENNURBS_PP2STR(OPENNURBS_FREETYPE_LIB_DIR) )
-#pragma comment(lib, "\"" OPENNURBS_FREETYPE_LIB_DIR "/" "freetype263_staticlib.lib" "\"")
+//#pragma message ( "Linking with freetype263_staticlib.lib in " OPENNURBS_PP2STR(OPENNURBS_FREETYPE_LIB_DIR) )
+//#pragma comment(lib, "\"" OPENNURBS_FREETYPE_LIB_DIR "/" "freetype263_staticlib.lib" "\"")
 #endif
 
 #else

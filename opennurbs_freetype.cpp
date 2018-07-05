@@ -1771,7 +1771,8 @@ bool ON_FreeTypeOutlineAccumlator::AddFreeTypeFiguresToOutline(
     ft_outline_funcs.line_to = ON_FreeTypeOutlineAccumlator::Internal_FreeTypeOutlineLineToFunc;
     ft_outline_funcs.conic_to = ON_FreeTypeOutlineAccumlator::Internal_FreeTypeOutlineConicToFunc;
     ft_outline_funcs.cubic_to = ON_FreeTypeOutlineAccumlator::Internal_FreeTypeOutlineCubicToFunc;
-    ft_outline_funcs.line_to_close_contour = ON_FreeTypeOutlineAccumlator::Internal_FreeTypeOutlineLineToCloseContourFunc;
+    /// TODO system-provided FreeType
+    ///ft_outline_funcs.line_to_close_contour = ON_FreeTypeOutlineAccumlator::Internal_FreeTypeOutlineLineToCloseContourFunc;
 
     FT_Outline_Decompose(&ft_outline, &ft_outline_funcs, (void*)this);
 
