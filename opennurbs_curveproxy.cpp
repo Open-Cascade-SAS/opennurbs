@@ -918,9 +918,9 @@ ON_CurveProxy::Evaluate( // returns false if unable to evaluate
   // from the active part of the curve.
   double normt = m_this_domain.NormalizedParameterAt(t);
   if( fabs( normt )<ON_ZERO_TOLERANCE)
-    side = ( std::abs(side) <= 1) ? 1 : 2;
+    side = ( abs(side) <= 1) ? 1 : 2;
   else if( fabs(1.0 - normt)<ON_ZERO_TOLERANCE)
-    side = ( std::abs(side) <= 1) ? -1 : -2;
+    side = ( abs(side) <= 1) ? -1 : -2;
   
   if ( 0 != side )
   {

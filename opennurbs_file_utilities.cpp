@@ -1145,7 +1145,7 @@ bool ON_FileSystem::RemoveFile(
 #elif defined(ON_RUNTIME_APPLE)
     rc = ::unlink(file_path);
 #else
-    rc = std::remove(file_path);
+    rc = ::remove(file_path);
 #endif
     if (0 == rc)
       return true;
@@ -1171,7 +1171,7 @@ bool ON_FileSystem::RemoveFile(
     rc = ::unlink(static_cast<const char*>(utf8_file_path));
 #else
     const ON_String utf8_file_path(file_path);
-    rc = std::remove(static_cast<const char*>(utf8_file_path));
+    rc = ::remove(static_cast<const char*>(utf8_file_path));
 #endif
     if (0 == rc)
       return true;
@@ -2747,7 +2747,7 @@ ON__UINT64 ON_SecondsSinceJanOne1970UTC()
 
 #else
 
-  __time64_t t = _time64(nullptr);
+  time_t t = time(nullptr);
   return (ON__UINT64)t;  
 
 #endif
@@ -2797,7 +2797,7 @@ const ON_wString SecondsSinceJanOne1970UTCToString(
 #else
 
   const time_t t = (time_t)seconds_since_epoch;
-  const struct tm* ptr = _gmtime64( &t );
+  const struct tm* ptr = gmtime( &t );
   if (nullptr != ptr)
   {
     const struct tm uct = *ptr;

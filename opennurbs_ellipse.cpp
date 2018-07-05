@@ -128,7 +128,7 @@ ON_3dVector ON_Ellipse::DerivativeAt(
 {
   double r0 = radius[0];
   double r1 = radius[1];
-  switch ( std::abs(d) % 4 )
+  switch ( abs(d) % 4 )
   {
   case 0:
     r0 *=  cos(t);

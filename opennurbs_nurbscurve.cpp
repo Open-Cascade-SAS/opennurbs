@@ -3797,7 +3797,7 @@ static bool ON_IsDuplicatePointList( int dim, bool is_rat,
                                      )
 {
   bool rc = (dim > 0 && count > 0
-             && std::abs(stride) >= (dim+(is_rat?1:0)) && std::abs(other_stride) >= (dim+(is_rat?1:0))
+             && abs(stride) >= (dim+(is_rat?1:0)) && abs(other_stride) >= (dim+(is_rat?1:0))
              && 0 != cv && 0 != other_cv);
   if (rc)
   {

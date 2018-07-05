@@ -737,6 +737,10 @@ Description:
 */
 template <class T> class ON_ObjectArray : public ON_ClassArray<T>
 {
+protected:
+  using ON_ClassArray<T>::m_a;
+  using ON_ClassArray<T>::m_count;
+  using ON_ClassArray<T>::m_capacity;
 public:
   ON_ObjectArray(); 
   ~ON_ObjectArray(); // override for struct member deallocation, etc.

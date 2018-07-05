@@ -155,14 +155,14 @@ bool ON_CreateUuid( ON_UUID& new_uuid )
 {
   // See http://www.faqs.org/rfcs/rfc4122.html for uuid details.
 
-#if 0
+#if defined(ON_RUNTIME_ANDROID)
   {
     // Use this code when testing reqires "repeatable uniqueness".
     // NEVER check in this code.
-    static ON_UUID x = ON_nil_uid;
+    static ON_UUID x = ON_nil_uuid;
     x = ON_NextNotUniqueId(x);
     new_uuid = x;
-#pramga message("warning: NEVER COMMIT THIS CODE - ON_CreateUuid in TEST MODE.")
+///#pramga message("warning: NEVER COMMIT THIS CODE - ON_CreateUuid in TEST MODE.")
   }
   return true;
 
@@ -177,7 +177,7 @@ bool ON_CreateUuid( ON_UUID& new_uuid )
                                        // identifies the user and some
                                        // customers may object.
   return true;
-#elif defined(ON_COMPILER_CLANG)
+#elif defined(ON_COMPILER_CLANG) || defined(ON_COMPILER_GNU)
   // Header: #include <uuid/uuid.h>
   if ( ON::endian::little_endian == ON::Endian() )
   {

@@ -60,15 +60,15 @@
 
 #define ON_RHINO_LOCALE_ID 1
 #define ON_INVALID_LOCALE_ID 2
-#define ON_CS_CZ_LOCALE_ID ON_Locale::WindowsLCID::cs_CZ_LCID
-#define ON_DE_DE_LOCALE_ID ON_Locale::WindowsLCID::de_DE_LCID
-#define ON_EN_CA_LOCALE_ID ON_Locale::WindowsLCID::en_CA_LCID
-#define ON_EN_US_LOCALE_ID ON_Locale::WindowsLCID::en_US_LCID
-#define ON_ES_ES_LOCALE_ID ON_Locale::WindowsLCID::es_ES_LCID
-#define ON_FR_FR_LOCALE_ID ON_Locale::WindowsLCID::fr_FR_LCID
-#define ON_IT_IT_LOCALE_ID ON_Locale::WindowsLCID::it_IT_LCID
-#define ON_PL_PL_LOCALE_ID ON_Locale::WindowsLCID::pl_PL_LCID
-#define ON_PT_PT_LOCALE_ID ON_Locale::WindowsLCID::pt_PT_LCID
+#define ON_CS_CZ_LOCALE_ID ON_Locale::cs_CZ_LCID
+#define ON_DE_DE_LOCALE_ID ON_Locale::de_DE_LCID
+#define ON_EN_CA_LOCALE_ID ON_Locale::en_CA_LCID
+#define ON_EN_US_LOCALE_ID ON_Locale::en_US_LCID
+#define ON_ES_ES_LOCALE_ID ON_Locale::es_ES_LCID
+#define ON_FR_FR_LOCALE_ID ON_Locale::fr_FR_LCID
+#define ON_IT_IT_LOCALE_ID ON_Locale::it_IT_LCID
+#define ON_PL_PL_LOCALE_ID ON_Locale::pl_PL_LCID
+#define ON_PT_PT_LOCALE_ID ON_Locale::pt_PT_LCID
 
 class ON_UnitName
 {
@@ -811,8 +811,8 @@ static unsigned int MapPreferedLocaleId(
 {
   switch (prefered_locale_id)
   {
-  case ON_Locale::WindowsLCID::es_ES_tradnl_LCID:
-    prefered_locale_id = ON_Locale::WindowsLCID::es_ES_LCID;
+  case ON_Locale::es_ES_tradnl_LCID:
+    prefered_locale_id = ON_Locale::es_ES_LCID;
     break;
   }
 

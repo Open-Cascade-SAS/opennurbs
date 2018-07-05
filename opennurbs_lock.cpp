@@ -25,7 +25,7 @@
 #endif
 
 
-#if defined(ON_COMPILER_CLANG)
+#if defined(ON_COMPILER_CLANG) || defined(ON_COMPILER_GNU)
 ON_Lock::ON_Lock() ON_NOEXCEPT
 : m_lock_value(ON_Lock::UnlockedValue)
 {}
