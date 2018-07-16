@@ -130,9 +130,10 @@
 
 #if !defined(ON_64BIT_RUNTIME) && !defined(ON_32BIT_RUNTIME)
 /* Attempt to determing runtime pointer size */
-#if (defined(_M_X64) || defined(__LP64__) || defined(__ppc64__))
+#if (defined(_M_X64) || defined(__LP64__) || defined(__ppc64__) || defined(_LP64))
 #define ON_64BIT_RUNTIME
-#elif (defined(_M_X86) || defined(__LP32__))
+#else
+//#elif (defined(_M_X86) || defined(__LP32__))
 #define ON_32BIT_RUNTIME
 #endif
 #endif

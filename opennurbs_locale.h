@@ -22,7 +22,7 @@ typedef
   _locale_t
 #elif defined(ON_RUNTIME_APPLE)
   locale_t
-#elif defined(ON_RUNTIME_ANDROID)
+#elif defined(__ANDROID__) && (__ANDROID_API__ >= 21)
   locale_t
 #else
   ON__UINT_PTR
