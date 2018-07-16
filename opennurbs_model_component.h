@@ -44,7 +44,7 @@ public:
 
 public:
 
-#pragma region RH_C_SHARED_ENUM [ON_ModelComponent::Type] [Rhino.DocObjects.ModelComponentType] [public:byte]
+///#pragma region RH_C_SHARED_ENUM [ON_ModelComponent::Type] [Rhino.DocObjects.ModelComponentType] [public:byte]
   ///<summary>
   ///The ON_ModelComponent::Type enum has a value for each explicit component type
   ///and two special values, Unset and Mixed. Use an ON_ModelComponentTypeIterator
@@ -85,7 +85,7 @@ public:
     ///</summary>
     Mixed = 0xFE
   };
-#pragma endregion
+///#pragma endregion
 
   static ON_ModelComponent::Type ComponentTypeFromUnsigned(
     unsigned int component_type_as_unsigned
@@ -1760,12 +1760,16 @@ public:
     ) const;
 
 private:
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_PUSH
-#pragma ON_PRAGMA_WARNING_DISABLE_MSC( 4251 ) 
+#pragma ON_PRAGMA_WARNING_DISABLE_MSC( 4251 )
+#endif
   // C4251: ... needs to have dll-interface to be used by clients of class ...
   // m_sp is private and all code that manages m_sp is explicitly implemented in the DLL.
   std::shared_ptr<ON_ModelComponent> m_sp;
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_POP
+#endif
 };
 
 #if defined(ON_DLL_TEMPLATE)

@@ -26,7 +26,7 @@
 // obsolete V5 dimension style
 #include "opennurbs_internal_V5_dimstyle.h"
 
-#pragma region DimstyleExtra
+///#pragma region DimstyleExtra
 
 /*
 Changes and additions 5/01/07 LW
@@ -654,7 +654,7 @@ bool ON_DimStyleExtra::CompareFields(const ON_DimStyleExtra* pOther) const
   }
   return true;
 }
-#pragma endregion DimstyleExtra
+///#pragma endregion DimstyleExtra
 
 
 ON_OBJECT_IMPLEMENT( ON_V5x_DimStyle, ON_Object, "81BD83D5-7120-41c4-9A57-C449336FF12C" );

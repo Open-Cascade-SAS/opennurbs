@@ -129,13 +129,17 @@ ON_ArithmeticCalculator::ON_ArithmeticCalculator()
   : m_pCalc(0)
 {
 // suppress MSC "conditional expression is constant" warning
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_PUSH
 #pragma ON_PRAGMA_WARNING_DISABLE_MSC( 4127 )
+#endif
   if ( sizeof(*m_pCalc) <= sizeof(m_inplace_buffer) )
   {
     m_pCalc = new ((void*)(&m_inplace_buffer[0])) ON_ArithmeticCalculatorImplementation();
   }
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_POP
+#endif
 }
 
 ON_ArithmeticCalculator::ON_ArithmeticCalculator(const ON_ArithmeticCalculator& src)
@@ -144,14 +148,18 @@ ON_ArithmeticCalculator::ON_ArithmeticCalculator(const ON_ArithmeticCalculator& 
   if ( 0 != src.m_pCalc )
   {
 // suppress MSC "conditional expression is constant" warning
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_PUSH
 #pragma ON_PRAGMA_WARNING_DISABLE_MSC( 4127 )
+#endif
     if ( sizeof(*m_pCalc) <= sizeof(m_inplace_buffer) )
     {
       m_pCalc = new ((void*)(&m_inplace_buffer[0])) ON_ArithmeticCalculatorImplementation();
       *m_pCalc = *src.m_pCalc;
     }
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_POP
+#endif
   }
 }
 
@@ -163,15 +171,19 @@ ON_ArithmeticCalculator::ON_ArithmeticCalculator(ON_ArithmeticCalculator&& src)
   if ( 0 != src.m_pCalc )
   {
 // suppress MSC "conditional expression is constant" warning
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_PUSH
 #pragma ON_PRAGMA_WARNING_DISABLE_MSC( 4127 )
+#endif
     if ( sizeof(*m_pCalc) <= sizeof(m_inplace_buffer) )
     {
       m_pCalc = new ((void*)(&m_inplace_buffer[0])) ON_ArithmeticCalculatorImplementation();
       *m_pCalc = *src.m_pCalc;
     }
     src.m_pCalc = 0;
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_POP
+#endif
   }
 }
 

@@ -106,8 +106,10 @@ public:
 private:
   // It is important that sizeof(ON_Lock) = sizeof(int)
   // and that m_lock_value be an int.
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_PUSH
 #pragma ON_PRAGMA_WARNING_DISABLE_MSC( 4251 ) 
+#endif
   // C4251: 'ON_Lock::m_lock_value': struct 'std::atomic<int>' 
   //         needs to have dll-interface to be used by clients of class 'ON_Lock'
   // m_lock_value is private and all code that manages m_lock_value is explicitly implemented in the DLL.
@@ -117,7 +119,9 @@ private:
 #else
   std::atomic<int> m_lock_value = ON_Lock::UnlockedValue;
 #endif
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_POP
+#endif
 };
 
 #endif

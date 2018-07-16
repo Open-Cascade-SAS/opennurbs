@@ -26,7 +26,7 @@ class ON_CLASS ON_Dimension : public ON_Annotation
   ON_OBJECT_DECLARE(ON_Dimension);
 
 public:
-#pragma region RH_C_SHARED_ENUM [ON_Dimension::ForceArrow] [Rhino.Geometry.Dimension.ForceArrow] [nested:int]
+///#pragma region RH_C_SHARED_ENUM [ON_Dimension::ForceArrow] [Rhino.Geometry.Dimension.ForceArrow] [nested:int]
   /// <summary>
   /// Arrowheads forced Inside, or Outside of extension lines, or moved to fit.
   /// </summary>
@@ -39,12 +39,12 @@ public:
     /// <summary> </summary>
     Outside = 2,
   };
-#pragma endregion
+///#pragma endregion
 
   static ON_Dimension::ForceArrow ForceArrowFromUnsigned(
     unsigned int force_arrow_as_unsigned);
 
-#pragma region RH_C_SHARED_ENUM [ON_Dimension::ForceText] [Rhino.Geometry.Dimension.ForceText] [nested:int]
+///#pragma region RH_C_SHARED_ENUM [ON_Dimension::ForceText] [Rhino.Geometry.Dimension.ForceText] [nested:int]
   /// <summary>
   /// Text forced Inside, Right or Left of extension lines, or moved to fit (Auto).
   /// </summary>
@@ -59,7 +59,7 @@ public:
     /// <summary> </summary>
     Left = 3,
   };
-#pragma endregion
+///#pragma endregion
 
   static ON_Dimension::ForceText ForceTextFromUnsigned(
     unsigned int force_text_as_unsigned);
@@ -820,23 +820,24 @@ protected:
 };
 
 
-//---------------------------------------------------------------------
-//            + dimpt
-//            |
-//            |
-//            |
-//            + kinkpt2
-//             \
-//              \  kinkoffset2
-//               \
-//                + kinkpt1
-//                |
-//                |  kinkoffset1
-//                |
-//                +  ldrpt
-//                1
-//                2
-//                3
+/*---------------------------------------------------------------------
+            + dimpt
+            |
+            |
+            |
+            + kinkpt2
+             \
+              \  kinkoffset2
+               \
+                + kinkpt1
+                |
+                |  kinkoffset1
+                |
+                +  ldrpt
+                1
+                2
+                3
+*/
 
 class ON_CLASS ON_DimOrdinate : public ON_Dimension
 {
@@ -850,7 +851,7 @@ public:
 
   static const ON_DimOrdinate Empty;
 
-#pragma region RH_C_SHARED_ENUM [ON_DimOrdinate::MeasuredDirection] [Rhino.Geometry.OrdinateDimension.MeasuredDirection] [nested:byte]
+///#pragma region RH_C_SHARED_ENUM [ON_DimOrdinate::MeasuredDirection] [Rhino.Geometry.OrdinateDimension.MeasuredDirection] [nested:byte]
   /// <summary>
   /// Ordinate dimension measures x or y direction
   /// </summary>
@@ -863,7 +864,7 @@ public:
     /// <summary> Measures vertical distance </summary>
     Yaxis = 2,
   };
-#pragma endregion
+///#pragma endregion
 
   static ON_DimOrdinate::MeasuredDirection MeasuredDirectionFromUnsigned(
     unsigned int measured_direction_as_unsigned

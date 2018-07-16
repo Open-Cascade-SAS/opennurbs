@@ -107,7 +107,7 @@ public:
     double length_value
     ) const;
 
-#pragma region RH_C_SHARED_ENUM [ON_LengthValue::StringFormat] [Rhino.LengthValue.StringFormat] [nested:byte]
+///#pragma region RH_C_SHARED_ENUM [ON_LengthValue::StringFormat] [Rhino.LengthValue.StringFormat] [nested:byte]
   /// <summary>
   /// Formatting to apply when creating a length value from a double.
   /// </summary>
@@ -131,7 +131,7 @@ public:
     ///<summary>The value may be adjusted slightly to improve clarity (1.124999... becomes 9/8).</summary>
     CleanImproperFraction = 5
   };
-#pragma endregion
+///#pragma endregion
 
   static ON_LengthValue::StringFormat LengthStringFormatFromUnsigned(
     unsigned int string_format_as_unsigned
@@ -463,7 +463,7 @@ public:
     class ON_BinaryArchive& archive
   );
 
-#pragma region RH_C_SHARED_ENUM [ON_ScaleValue::ScaleStringFormat] [Rhino.ScaleValue.ScaleStringFormat] [nested:byte]
+///#pragma region RH_C_SHARED_ENUM [ON_ScaleValue::ScaleStringFormat] [Rhino.ScaleValue.ScaleStringFormat] [nested:byte]
   /// <summary>
   /// Specifies prefered formats for automatically
   /// created string descriptions of a scale value.
@@ -496,7 +496,7 @@ public:
     /// </summary>
     Unset = 0xFF
   };
-#pragma endregion
+///#pragma endregion
 
   static ON_ScaleValue::ScaleStringFormat ScaleStringFormatFromUnsigned(
     unsigned int scale_string_format_as_unsigned

@@ -1069,7 +1069,7 @@ int ON_TextRun::WrapTextRun(
   if (!(Awidth > 0.0 && wrapwidth >= Awidth))
     return 0;
 
-#pragma region Run Width
+///#pragma region Run Width
   double runwidth = 0.0;  // run width without trailing spaces
   //double runwidth0 = 0.0; // run width including trailing spaces
   if (0 == start_char_offset)  // using the whole run
@@ -1098,9 +1098,9 @@ int ON_TextRun::WrapTextRun(
 
   if (0.0 > runwidth)
     runwidth = 0.0;
-#pragma endregion Run Width
+///#pragma endregion Run Width
 
-#pragma region Whole Run
+///#pragma region Whole Run
   if (runwidth + linewidth <= wrapwidth || 2 > cpcount)
   {
     // Adding this entire run won't go past wrap width
@@ -1123,7 +1123,7 @@ int ON_TextRun::WrapTextRun(
       return 1; // 1 new run was added
     }
   }
-#pragma endregion Whole Run
+///#pragma endregion Whole Run
 
   // Find what part of the run will fit
   bool found_space = false;

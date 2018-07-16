@@ -5168,8 +5168,10 @@ private:
 
   mutable ON_3dmAnnotationContext m_annotation_context;
 
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_PUSH
 #pragma ON_PRAGMA_WARNING_DISABLE_MSC( 4251 )
+#endif
   // The m_archive_text_style_table[] array is used when reading archives.
   // It contains the text styles read from the archive
   ON_SimpleArray< ON_TextStyle* > m_archive_text_style_table;
@@ -5211,7 +5213,9 @@ private:
   // begin searching for the next dimstyle to "read".
   unsigned int m_archive_dim_style_table_read_index = ON_UNSET_UINT_INDEX;
 
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_POP
+#endif
 
 public:
   /*

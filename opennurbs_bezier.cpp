@@ -24,11 +24,13 @@
 #error ON_COMPILING_OPENNURBS must be defined when compiling opennurbs
 #endif
 
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_PUSH
+#endif
 #include <vector>
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_POP
-
-
+#endif
 
 
 ////////////////////////////////////////////////////////////////////////

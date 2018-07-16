@@ -20,7 +20,7 @@
 // ON_ComponentState and ON_ComponentStatus
 //
 
-#pragma region RH_C_SHARED_ENUM [ON_ComponentState] [Rhino.Geometry.ComponentState] [internal:byte]
+///#pragma region RH_C_SHARED_ENUM [ON_ComponentState] [Rhino.Geometry.ComponentState] [internal:byte]
 
 ///<summary><para>Provides a set of values describing component state.</para>
 ///<para>This is not a bit field.</para>
@@ -78,7 +78,7 @@ enum class ON_ComponentState : unsigned char
   ///<summary>This runtime mark is set.</summary>
   RuntimeMarkSet = 16
 };
-#pragma endregion
+///#pragma endregion
 
 ON_DECL 
 ON_ComponentState ON_ComponentStateFromUnsigned( 

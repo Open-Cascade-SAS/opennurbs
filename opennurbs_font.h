@@ -226,7 +226,7 @@ class ON_CLASS ON_Font
 {
 public:
 
-#pragma region RH_C_SHARED_ENUM [ON_Font::Weight] [Rhino.DocObjects.Font.FontWeight] [nested:byte]
+///#pragma region RH_C_SHARED_ENUM [ON_Font::Weight] [Rhino.DocObjects.Font.FontWeight] [nested:byte]
   /// <summary>
   /// Weight enum values
   /// Avoid casting these values to int.
@@ -278,7 +278,7 @@ public:
 
     //Black      = 9,
   };
-#pragma endregion
+///#pragma endregion
 
   /*
   Returns:
@@ -415,7 +415,7 @@ public:
     double apple_font_weight_trait
     );
 
-#pragma region RH_C_SHARED_ENUM [ON_Font::Stretch] [Rhino.DocObjects.Font.FontStretch] [nested:byte]
+///#pragma region RH_C_SHARED_ENUM [ON_Font::Stretch] [Rhino.DocObjects.Font.FontStretch] [nested:byte]
   /// <summary>
   /// Horizontal expansion or contraction of font
   /// </summary>
@@ -446,7 +446,7 @@ public:
     /// <summary> </summary>
     Ultraexpanded = 9
   };
-#pragma endregion
+///#pragma endregion
 
   /*
   Description:
@@ -461,7 +461,7 @@ public:
     );
 
 
-#pragma region RH_C_SHARED_ENUM [ON_Font::Style] [Rhino.DocObjects.Font.FontStyle] [nested:byte]
+///#pragma region RH_C_SHARED_ENUM [ON_Font::Style] [Rhino.DocObjects.Font.FontStyle] [nested:byte]
   /// <summary>
   /// Vertical angle of font
   /// Upright, Italic, or Oblique
@@ -483,7 +483,7 @@ public:
     /// <summary> </summary>
     Oblique = 3
   };
-#pragma endregion
+///#pragma endregion
 
   /*
   Description:
@@ -1914,14 +1914,18 @@ private:
   class ON_FontGlyphCache* FontGlyphCache(
     bool bCreateIfMissing
     ) const;
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_PUSH
 #pragma ON_PRAGMA_WARNING_DISABLE_MSC( 4251 ) 
+#endif
   // C4251: '...std::shared_ptr<class ON_FontGlyphCache>...' 
   //         needs to have dll-interface to be used by clients of class 'ON_Font'
   // m_font_glyph_cache is private and all code that manages m_font_glyph_cache is explicitly implemented in the DLL.
 private:
   mutable std::shared_ptr<class ON_FontGlyphCache> m_font_glyph_cache;
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_POP
+#endif
   //
   // END global font cache interface
   //

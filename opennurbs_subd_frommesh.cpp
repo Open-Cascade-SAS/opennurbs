@@ -326,16 +326,20 @@ ON_SubD* ON_SubD::CreateFromMesh(
   if (subd_vertex_count < 3 || mesh_edge_count < 3 || subd_face_count < 1)
     return nullptr;
 
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_PUSH
 #pragma ON_PRAGMA_WARNING_DISABLE_CLANG("-Wpessimizing-move")
 #pragma ON_PRAGMA_WARNING_DISABLE_GNU("-Wpessimizing-move")
+#endif
   // Ignore the CLang warning about preventing elision
   std::unique_ptr< ON_SubD > uptr;
   ON_SubD* new_subd
     = (nullptr != subd)
     ? subd // use subd supplied by the caller
     : (uptr = std::move(std::unique_ptr< ON_SubD >(new ON_SubD()))).get(); // new ON_SubD on the heap managed by uptr - ignore CLang warning
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_POP
+#endif
 
   bool bHasTaggedVertices = false;
 

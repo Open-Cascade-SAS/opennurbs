@@ -429,7 +429,7 @@ public:
     maximum_subd_level = 128        // uses as a sanity check on input parameters
   };
 
-#pragma region RH_C_SHARED_ENUM [ON_SubD::VertexTag] [Rhino.Geometry.SubD.SubDVertexTag] [nested:byte]
+///#pragma region RH_C_SHARED_ENUM [ON_SubD::VertexTag] [Rhino.Geometry.SubD.SubDVertexTag] [nested:byte]
   /// <summary>
   /// SubD::VertexTag identifies the type of subdivision vertex.  Different tags use
   /// different subdivision algorithms to determine where the subdivision point and
@@ -472,7 +472,7 @@ public:
     ///</summary>
     Dart = 4
   };
-#pragma endregion
+///#pragma endregion
 
   static ON_SubD::VertexTag VertexTagFromUnsigned( 
     unsigned int vertex_tag_as_unsigned
@@ -489,7 +489,7 @@ public:
     ON_SubD::VertexTag vertex_tag
   );
 
-#pragma region RH_C_SHARED_ENUM [ON_SubD::EdgeTag] [Rhino.Geometry.SubD.SubDEdgeTag] [nested:byte]
+///#pragma region RH_C_SHARED_ENUM [ON_SubD::EdgeTag] [Rhino.Geometry.SubD.SubDEdgeTag] [nested:byte]
   /// <summary>
   /// SubD::EdgeTag identifies the type of subdivision edge.  Different tags use
   /// different subdivision algorithms to determine where the subdivision point is located.
@@ -546,7 +546,7 @@ public:
     ///</summary>
     X = 4
   };
-#pragma endregion
+///#pragma endregion
 
   static ON_SubD::EdgeTag EdgeTagFromUnsigned( 
     unsigned int edge_tag_as_unsigned
@@ -565,7 +565,7 @@ public:
   );
 
   
-#pragma region RH_C_SHARED_ENUM [ON_SubD::FacetType] [Rhino.Geometry.SubD.SubDFacetType] [nested:byte]
+///#pragma region RH_C_SHARED_ENUM [ON_SubD::FacetType] [Rhino.Geometry.SubD.SubDFacetType] [nested:byte]
   /// <summary>
   /// SubD::FacetType reports the default facet type for subdivision algorithms.
   /// </summary>  
@@ -580,7 +580,7 @@ public:
     ///<summary> Quadrangle </summary>
     Quad = 4
   };
-#pragma endregion
+///#pragma endregion
 
   static ON_SubD::FacetType FacetTypeFromUnsigned( 
     unsigned int facet_type_as_unsigned
@@ -602,7 +602,7 @@ public:
   //  unsigned int vertex_edge_order_as_unsigned
   //  );
 
-#pragma region RH_C_SHARED_ENUM [ON_SubD::VertexFacetType] [Rhino.Geometry.SubD.VertexFacetType] [nested:byte]
+///#pragma region RH_C_SHARED_ENUM [ON_SubD::VertexFacetType] [Rhino.Geometry.SubD.VertexFacetType] [nested:byte]
 
   ///<summary>Summarizes the number of edges in faces in the whole object.</summary>
   enum class VertexFacetType : unsigned char
@@ -622,13 +622,13 @@ public:
     ///<summary>Edge count of faces is not constant.</summary>
     Mixed = 0xFF 
   };
-#pragma endregion
+///#pragma endregion
 
   static ON_SubD::VertexFacetType VertexFacetTypeFromUnsigned( 
     unsigned int vertex_facet_type_as_unsigned
     );
 
-#pragma region RH_C_SHARED_ENUM [ON_SubD::SubDType] [Rhino.Geometry.SubD.SubDType] [nested:byte]
+///#pragma region RH_C_SHARED_ENUM [ON_SubD::SubDType] [Rhino.Geometry.SubD.SubDType] [nested:byte]
   /// <summary>
   /// Subdivision algorithm.
   /// </summary>  
@@ -666,7 +666,7 @@ public:
 
     // All values must be <= 31; i.e., (((unsigned char)0xE0U) & subd_type)) must be zero.
   };
-#pragma endregion
+///#pragma endregion
 
   static ON_SubD::SubDType SubDTypeFromUnsigned( 
     unsigned int subd_type_as_unsigned
@@ -2160,13 +2160,17 @@ private:
 
 private:
   friend class ON_SubDRef;
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_PUSH
 #pragma ON_PRAGMA_WARNING_DISABLE_MSC( 4251 ) 
+#endif
   // C4251: ... needs to have dll-interface to be used by clients of class ...
   // m_subdimple_sp is private and all code that manages m_subdimple_sp is explicitly implemented in the DLL.
 private:
   std::shared_ptr<class ON_SubDimple> m_subdimple_sp;
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_POP
+#endif
 
 public:
   // The ON_SubD code increments ON_SubD::ErrorCount everytime something
@@ -2291,13 +2295,17 @@ private:
     );
   
 private:
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_PUSH
 #pragma ON_PRAGMA_WARNING_DISABLE_MSC( 4251 ) 
+#endif
   // C4251: ... needs to have dll-interface to be used by clients of class ...
   // m_subd_sp is private and all code that manages m_subd_sp is explicitly implemented in the DLL.
 private:
   std::shared_ptr<class ON_SubD> m_subd_sp;
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_POP
+#endif
 };
 
 
@@ -3787,15 +3795,18 @@ public:
   unsigned int SubLimpleUseCount() const;
 
 private:
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_PUSH
 #pragma ON_PRAGMA_WARNING_DISABLE_MSC( 4251 ) 
+#endif
   friend class ON_SubDLimitMeshImpl;
   // C4251: ... needs to have dll-interface to be used by clients of class ...
   // m_impl_sp is private and all code that manages m_impl_sp is explicitly implemented in the DLL.
 private:
   std::shared_ptr< class ON_SubDLimitMeshImpl > m_impl_sp;
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_POP
-
+#endif
 };
 
 
@@ -3822,7 +3833,7 @@ public:
   // Every other field of ON_SubDLimitPatchFragment::Unset is zero.
   static const ON_SubDLimitPatchFragment Nan;
 
-#pragma region RH_C_SHARED_ENUM [SubD::PatchType] [Rhino.Geometry.SubD.PatchType] [internal:nested:byte]
+///#pragma region RH_C_SHARED_ENUM [SubD::PatchType] [Rhino.Geometry.SubD.PatchType] [internal:nested:byte]
   enum class PatchType : unsigned char
   {
     ///<summary>Not a valid patch type.</summary>
@@ -3843,7 +3854,7 @@ public:
     ///<summary>A patch cannot be calculated at the current subdivision level.</summary>
     None = 5
   };
-#pragma endregion
+///#pragma endregion
 
 public:
   double m_patch_cv[5][5][3];
@@ -5227,13 +5238,17 @@ private:
   const class ON_SubDVertex*const* m_a = nullptr;
   unsigned int m_vertex_count = 0;
 
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_PUSH
 #pragma ON_PRAGMA_WARNING_DISABLE_MSC( 4251 )
+#endif
   // C4251: ... needs to have dll-interface to be used by clients of class ...
   // m_sp is private and all code that manages m_sp is explicitly implemented in the DLL.
 private:
   std::shared_ptr< const class ON_SubDVertex* > m_sp;
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_POP
+#endif
 };
 
 //////////////////////////////////////////////////////////////////////////
@@ -5278,13 +5293,17 @@ private:
   const class ON_SubDEdge*const* m_a = nullptr;
   unsigned int m_edge_count = 0;
 
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_PUSH
 #pragma ON_PRAGMA_WARNING_DISABLE_MSC( 4251 )
+#endif
   // C4251: ... needs to have dll-interface to be used by clients of class ...
   // m_sp is private and all code that manages m_sp is explicitly implemented in the DLL.
 private:
   std::shared_ptr< const class ON_SubDEdge* > m_sp;
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_POP
+#endif
 };
 
 //////////////////////////////////////////////////////////////////////////
@@ -5328,14 +5347,18 @@ private:
   ON_SubD m_subd;
   const class ON_SubDFace*const* m_a = nullptr;
   unsigned int m_face_count = 0;
-  
+
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_PUSH
 #pragma ON_PRAGMA_WARNING_DISABLE_MSC( 4251 )
+#endif
   // C4251: ... needs to have dll-interface to be used by clients of class ...
   // m_sp is private and all code that manages m_sp is explicitly implemented in the DLL.
 private:
   std::shared_ptr< const class ON_SubDFace* > m_sp;
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_POP
+#endif
 };
 
 //////////////////////////////////////////////////////////////////////////
@@ -6486,7 +6509,7 @@ public:
   //
   // Custom interior crease options
   //
-#pragma region RH_C_SHARED_ENUM [SubD::InteriorCreaseOption] [Rhino.Geometry.SubD.InteriorCreaseOption] [nested:byte]
+///#pragma region RH_C_SHARED_ENUM [SubD::InteriorCreaseOption] [Rhino.Geometry.SubD.InteriorCreaseOption] [nested:byte]
   ///<summary>
   ///Defines how interior creases are treated.
   ///</summary>
@@ -6507,7 +6530,7 @@ public:
     ///Input mesh vertex normals are ignored.</summary>
     AtMeshEdge = 3
   };
-#pragma endregion
+///#pragma endregion
 
   static ON_SubDFromMeshOptions::InteriorCreaseOption InteriorCreaseOptionFromUnsigned(
     unsigned int interior_crease_option_as_unsigned
@@ -6590,7 +6613,7 @@ public:
   //
   // Custom convex corner options
   //
-#pragma region RH_C_SHARED_ENUM [SubD::ConvexCornerOption] [Rhino.Geometry.SubD.ConvexCornerOption] [nested:byte]
+///#pragma region RH_C_SHARED_ENUM [SubD::ConvexCornerOption] [Rhino.Geometry.SubD.ConvexCornerOption] [nested:byte]
   ///<summary>
   ///Defines how convex corners are treated.
   ///</summary>
@@ -6608,7 +6631,7 @@ public:
     ///</summary>
     AtMeshCorner = 2
   };
-#pragma endregion
+///#pragma endregion
 
   static ON_SubDFromMeshOptions::ConvexCornerOption ConvexCornerOptionFromUnsigned(
     unsigned int convex_corner_option_as_unsigned

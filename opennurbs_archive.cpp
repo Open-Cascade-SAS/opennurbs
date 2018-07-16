@@ -900,12 +900,13 @@ ON_BinaryArchive::ReadShort(   // Read an array of 16 bit shorts
 		short* p
 		)
 {
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_PUSH
 // Disable the MSC /W4 "conditional expression is constant" warning
 // about 2 == sizeof(*p).  Since this code has to run on machines
 // where sizeof(*p) can be 2, 4, or 8 bytes, the test is necessary.
 #pragma ON_PRAGMA_WARNING_DISABLE_MSC(4127)
-
+#endif
   bool rc = true;
 
   if ( 2 == sizeof(*p) )
@@ -923,8 +924,9 @@ ON_BinaryArchive::ReadShort(   // Read an array of 16 bit shorts
     }
   }
   return rc;
-
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_POP
+#endif
 }
 
 bool

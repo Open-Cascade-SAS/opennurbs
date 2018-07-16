@@ -22,7 +22,7 @@ class ON_CLASS ON_ComponentAttributes
 {
 public:
 
-#pragma region RH_C_SHARED_ENUM [ON_ComponentAttributes::EdgeFlags] [Rhino.Geometry.EdgeAttributeFlags] [int]
+///#pragma region RH_C_SHARED_ENUM [ON_ComponentAttributes::EdgeFlags] [Rhino.Geometry.EdgeAttributeFlags] [int]
 
   /// <summary>
   /// <para>ON_EdgeAttributeFlags are used to report attributes of single edge objects, like
@@ -134,7 +134,7 @@ public:
     Mask = 0xFFFF
   };
 
-#pragma endregion
+///#pragma endregion
 
   /// <summary> 
   /// Inspects aggregate edge demographics to determine if every edge has exactly two faces and all 

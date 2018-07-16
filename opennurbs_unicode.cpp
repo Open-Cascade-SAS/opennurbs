@@ -97,15 +97,19 @@ int ON_IsValidSingleElementWideCharValue(
   wchar_t w
   )
 {
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_PUSH
 // warning C4127: conditional expression is constant
 #pragma ON_PRAGMA_WARNING_DISABLE_MSC( 4127 )
+#endif
   if (1 == sizeof(w))
     return ON_IsValidSingleElementUTF8Value((ON__UINT32)w);
   if (2 == sizeof(w))
     return ON_IsValidSingleElementUTF16Value((ON__UINT32)w);
   return ON_IsValidUTF32Value((ON__UINT32)w);
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_POP
+#endif
 }
 
 enum ON_UnicodeEncoding ON_IsUTFByteOrderMark(

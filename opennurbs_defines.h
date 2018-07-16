@@ -791,7 +791,7 @@ public:
   static int IsOpenNURBSFile( const char* utf8pathname );
   static int IsOpenNURBSFile( FILE* fp );
 
-#pragma region RH_C_SHARED_ENUM [ON::RuntimeEnvironment] [Rhino.RuntimeEnvironment] [byte]
+///#pragma region RH_C_SHARED_ENUM [ON::RuntimeEnvironment] [Rhino.RuntimeEnvironment] [byte]
   /////////////////////////////////////////////////////////////////
   /// <summary>
   /// ON::RuntimeEnvironment identifies a runtime environment (operating system).
@@ -827,7 +827,7 @@ public:
     ///</summary>
     Android =  4    
   };
-#pragma endregion
+///#pragma endregion
 
   static ON::RuntimeEnvironment RuntimeEnvironmentFromUnsigned(
     unsigned int runtime_environment_as_unsigned
@@ -840,7 +840,7 @@ public:
   static ON::RuntimeEnvironment CurrentRuntimeEnvironment();
 
 
-#pragma region RH_C_SHARED_ENUM [ON::ReadFileResult] [Rhino.ReadFileResult] [byte]
+///#pragma region RH_C_SHARED_ENUM [ON::ReadFileResult] [Rhino.ReadFileResult] [byte]
   /// <summary>
   /// ON::ReadFileResult reports what happened when a file read was attempted.
   /// </summary>
@@ -866,7 +866,7 @@ public:
     ///</summary>
     Failed = 3
   };
-#pragma endregion
+///#pragma endregion
 
   static ON::ReadFileResult ReadFileResultFromUnsigned(
     unsigned int read_file_result_as_unsigned
@@ -901,7 +901,7 @@ public:
 
   static active_space ActiveSpace(int); // convert integer to active_space enum
   
-#pragma region RH_C_SHARED_ENUM [ON::LengthUnitSystem] [Rhino.UnitSystem] [byte]
+///#pragma region RH_C_SHARED_ENUM [ON::LengthUnitSystem] [Rhino.UnitSystem] [byte]
   //   unit_system ///////////////////////////////////////////////////////////////
   /// <summary>
   /// ON::LengthUnitSystem identifies a length unit system
@@ -1076,7 +1076,7 @@ public:
     ///</summary>
     Unset = 255
   };
-#pragma endregion
+///#pragma endregion
 
   static ON::LengthUnitSystem LengthUnitSystemFromUnsigned(
     unsigned int length_unit_system_as_unsigned
@@ -1234,7 +1234,7 @@ public:
       );
 
 
-#pragma region RH_C_SHARED_ENUM [ON::AngleUnitSystem] [Rhino.AngleUnitSystem] [byte]
+///#pragma region RH_C_SHARED_ENUM [ON::AngleUnitSystem] [Rhino.AngleUnitSystem] [byte]
   /// <summary>
   /// ON::AngleUnitSystem identifies an angle unit system
   /// </summary>
@@ -1282,7 +1282,7 @@ public:
     ///</summary>
     Unset = 255
   };
-#pragma endregion
+///#pragma endregion
 
   static ON::AngleUnitSystem AngleUnitSystemFromUnsigned(
     unsigned int angle_unit_system_as_unsigned
@@ -1955,7 +1955,7 @@ public:
 
 public:
 
-#pragma region RH_C_SHARED_ENUM [ON::AnnotationType] [Rhino.Geometry.AnnotationType] [byte]
+///#pragma region RH_C_SHARED_ENUM [ON::AnnotationType] [Rhino.Geometry.AnnotationType] [byte]
 
   /// <summary>
   /// ON::AnnotationType identifies the type of an annotation object derived from ON_Annotation.
@@ -2023,7 +2023,7 @@ public:
     Angular3pt = 11
   };
 
-#pragma endregion
+///#pragma endregion
 
   static ON::AnnotationType AnnotationTypeFromUnsigned( 
     unsigned int annotation_type_as_unsigned
@@ -2031,7 +2031,7 @@ public:
 
 
 
-#pragma region RH_C_SHARED_ENUM [ON::TextVerticalAlignment] [Rhino.DocObjects.TextVerticalAlignment] [byte]
+///#pragma region RH_C_SHARED_ENUM [ON::TextVerticalAlignment] [Rhino.DocObjects.TextVerticalAlignment] [byte]
   /// <summary>
   /// Vertical location of text attach point relative to text
   /// </summary>
@@ -2066,7 +2066,7 @@ public:
     ///</summary>
     BottomOfBoundingBox = 6, // TODO - changed to BottomOfBoundingBox
   };
-#pragma endregion
+///#pragma endregion
 
   static ON::TextVerticalAlignment TextVerticalAlignmentFromUnsigned(
     unsigned int vertical_alignment_as_unsigned
@@ -2076,7 +2076,7 @@ public:
     unsigned int v5_justification_bits
   );
 
-#pragma region RH_C_SHARED_ENUM [ON::TextHorizontalAlignment] [Rhino.DocObjects.TextHorizontalAlignment] [byte]
+///#pragma region RH_C_SHARED_ENUM [ON::TextHorizontalAlignment] [Rhino.DocObjects.TextHorizontalAlignment] [byte]
   /// <summary>
   /// Horizontal location of text attach point relative to text
   /// </summary>
@@ -2095,7 +2095,7 @@ public:
     /// </summary>
     Right = 2,
   };
-#pragma endregion
+///#pragma endregion
 
   static ON::TextHorizontalAlignment TextHorizontalAlignmentFromUnsigned(
     unsigned int horizontal_alignment_as_unsigned
@@ -2105,7 +2105,7 @@ public:
     unsigned int v5_justification_bits
   );
 
-#pragma region RH_C_SHARED_ENUM [ON::TextOrientation] [Rhino.DocObjects.TextOrientation] [byte]
+///#pragma region RH_C_SHARED_ENUM [ON::TextOrientation] [Rhino.DocObjects.TextOrientation] [byte]
   /// <summary>
   /// Method for getting rotation for drawing text
   /// </summary>
@@ -2121,7 +2121,7 @@ public:
     InView = 1,
   };
 
-#pragma endregion
+///#pragma endregion
 
   static ON::TextOrientation TextOrientationFromUnsigned(
     unsigned int orientation_as_unsigned

@@ -30,7 +30,7 @@ public:
   bool operator!=(const ON_Arrowhead& other) const;
 
 
-#pragma region RH_C_SHARED_ENUM [ON_Arrowhead::arrow_type] [Rhino.DocObjects.DimensionStyle.ArrowType] [nested:int]
+///#pragma region RH_C_SHARED_ENUM [ON_Arrowhead::arrow_type] [Rhino.DocObjects.DimensionStyle.ArrowType] [nested:int]
   /// <summary>
   /// Defines enumerated values for arrowhead shapes.
   /// </summary>
@@ -57,7 +57,7 @@ public:
     /// <summary> </summary>
     LongerTriangle = 9,   // 6:1
   };
-#pragma endregion
+///#pragma endregion
 
   static ON_Arrowhead::arrow_type ArrowTypeFromUnsigned(
     unsigned int type_as_unsigned
@@ -96,7 +96,7 @@ class ON_CLASS ON_TextMask
 {
 public:
 
-#pragma region RH_C_SHARED_ENUM [ON_TextMask::MaskType] [Rhino.DocObjects.DimensionStyle.MaskType] [nested:byte]
+///#pragma region RH_C_SHARED_ENUM [ON_TextMask::MaskType] [Rhino.DocObjects.DimensionStyle.MaskType] [nested:byte]
   /// <summary>
   /// Text mask drawn with background color or explicit color
   /// </summary>
@@ -111,7 +111,7 @@ public:
     /// </summary>
     MaskColor = 1,
   };
-#pragma endregion
+///#pragma endregion
 
   static ON_TextMask::MaskType MaskTypeFromUnsigned(
     unsigned int mask_type_as_unsigned
@@ -438,7 +438,7 @@ public:
   //////////////////////////////////////////////////////////////////////
   // Interface
 
-#pragma region RH_C_SHARED_ENUM [ON_DimStyle::LengthDisplay] [Rhino.DocObjects.DimensionStyle.LengthDisplay] [nested:int]
+///#pragma region RH_C_SHARED_ENUM [ON_DimStyle::LengthDisplay] [Rhino.DocObjects.DimensionStyle.LengthDisplay] [nested:int]
   /// <summary>
   /// Dimension display length unit system and style
   /// </summary>
@@ -495,7 +495,7 @@ public:
     Miles = 9
   };
 
-#pragma endregion
+///#pragma endregion
 
   static ON_DimStyle::LengthDisplay LengthDisplayFromUnsigned(
     unsigned int length_display_as_unsigned
@@ -516,7 +516,7 @@ public:
   );
 
 
-#pragma region RH_C_SHARED_ENUM [ON_DimStyle::tolerance_format] [Rhino.DocObjects.DimensionStyle.ToleranceDisplayFormat] [nested:byte]
+///#pragma region RH_C_SHARED_ENUM [ON_DimStyle::tolerance_format] [Rhino.DocObjects.DimensionStyle.ToleranceDisplayFormat] [nested:byte]
   /// <summary>
   /// Style of tolerance display for dimensions
   /// </summary>
@@ -539,14 +539,14 @@ public:
     /// </summary>
     Limits = 3,
   };
-#pragma endregion
+///#pragma endregion
 
   static ON_DimStyle::tolerance_format ToleranceFormatFromUnsigned(
     unsigned int format_as_unsigned
   );
 
 
-#pragma region RH_C_SHARED_ENUM [ON_DimStyle::ContentAngleStyle] [Rhino.DocObjects.DimensionStyle.LeaderContentAngleStyle] [nested:byte]
+///#pragma region RH_C_SHARED_ENUM [ON_DimStyle::ContentAngleStyle] [Rhino.DocObjects.DimensionStyle.LeaderContentAngleStyle] [nested:byte]
   /// <summary>
   /// Angle for text or other leader or dimension content
   /// </summary>
@@ -565,13 +565,13 @@ public:
     /// </summary>
     Rotated = 2,
   };
-#pragma endregion
+///#pragma endregion
 
   static ON_DimStyle::ContentAngleStyle ContentAngleStyleFromUnsigned(
     unsigned int alignment_as_unsigned
   );
 
-#pragma region RH_C_SHARED_ENUM [ON_DimStyle::leader_curve_type] [Rhino.DocObjects.DimensionStyle.LeaderCurveStyle] [nested:byte]
+///#pragma region RH_C_SHARED_ENUM [ON_DimStyle::leader_curve_type] [Rhino.DocObjects.DimensionStyle.LeaderCurveStyle] [nested:byte]
   /// <summary>
   /// Type of leader curve
   /// </summary>
@@ -590,13 +590,13 @@ public:
     /// </summary>
     Spline = 2
   };
-#pragma endregion
+///#pragma endregion
   
   static ON_DimStyle::leader_curve_type LeaderCurveTypeFromUnsigned(
     unsigned int type_as_unsigned
   );
 
-#pragma region RH_C_SHARED_ENUM [ON_DimStyle::field] [Rhino.DocObjects.DimensionStyle.Field] [nested:int]
+///#pragma region RH_C_SHARED_ENUM [ON_DimStyle::field] [Rhino.DocObjects.DimensionStyle.Field] [nested:int]
   // Don't change these enum values. They are used in file reading and writing.
   /// <summary>
   /// Field identifiers used for file i/o and getting/setting values
@@ -860,7 +860,7 @@ public:
     Count = 111
   };
   
-#pragma endregion
+///#pragma endregion
 
   enum : unsigned int
   {
@@ -873,7 +873,7 @@ public:
   );
   
 
-#pragma region RH_C_SHARED_ENUM [ON_DimStyle::angle_format] [Rhino.DocObjects.DimensionStyle.AngleDisplayFormat] [nested:byte]
+///#pragma region RH_C_SHARED_ENUM [ON_DimStyle::angle_format] [Rhino.DocObjects.DimensionStyle.AngleDisplayFormat] [nested:byte]
   /// <summary>
   /// Display format for angles
   /// </summary>
@@ -888,13 +888,13 @@ public:
     /// <summary> Decimal Gradians </summary>
     Grads            = 3
   };
-#pragma endregion
+///#pragma endregion
 
   static ON_DimStyle::angle_format AngleFormatFromUnsigned(
     unsigned int format_as_unsigned
   );
 
-#pragma region RH_C_SHARED_ENUM [ON_DimStyle::OBSOLETE_length_format] [Rhino.DocObjects.DimensionStyle.LengthDisplayFormat] [nested:byte]
+///#pragma region RH_C_SHARED_ENUM [ON_DimStyle::OBSOLETE_length_format] [Rhino.DocObjects.DimensionStyle.LengthDisplayFormat] [nested:byte]
   /// <summary>
   /// Obsolete format for length display - use ON_DimStyle::DimensionLengthDisplay instead
   /// </summary>
@@ -912,7 +912,7 @@ public:
     /// <summary>Obsolete - use ON_DimStyle::DimensionLengthDisplay::FeetAndInches enum.</summary>
     FeetDecimalInches = 3
   };
-#pragma endregion
+///#pragma endregion
 
 
   static ON_DimStyle::OBSOLETE_length_format OBSOLETE_LengthFormatFromUnsigned(
@@ -936,7 +936,7 @@ public:
     ON::LengthUnitSystem model_unit_system
   );
 
-#pragma region RH_C_SHARED_ENUM [ON_DimStyle::TextLocation] [Rhino.DocObjects.DimensionStyle.TextLocation] [nested:byte]
+///#pragma region RH_C_SHARED_ENUM [ON_DimStyle::TextLocation] [Rhino.DocObjects.DimensionStyle.TextLocation] [nested:byte]
   /// <summary>
   /// The location of text in linear, angular, radial, and ordinate dimensions.
   /// </summary>
@@ -949,7 +949,7 @@ public:
     /// <summary>Text is below dimension line.</summary>
     BelowDimLine = 2
   };
-#pragma endregion
+///#pragma endregion
 
   static ON_DimStyle::TextLocation TextLocationFromUnsigned(
     unsigned int dim_text_location_as_unsigned
@@ -966,7 +966,7 @@ public:
     );
 
 
-#pragma region RH_C_SHARED_ENUM [ON_DimStyle::suppress_zero] [Rhino.DocObjects.DimensionStyle.ZeroSuppression] [nested:byte]
+///#pragma region RH_C_SHARED_ENUM [ON_DimStyle::suppress_zero] [Rhino.DocObjects.DimensionStyle.ZeroSuppression] [nested:byte]
   /// <summary>
   /// Marks leading and trailing zeros for removal.
   /// </summary>
@@ -987,13 +987,13 @@ public:
     /// <summary>Suppress zero feet and zero inches.</summary>
     SuppressZeroFeetAndZeroInches = 12
   };
-#pragma endregion
+///#pragma endregion
 
   static ON_DimStyle::suppress_zero ZeroSuppressFromUnsigned(
     unsigned int suppress_ero_as_unsigned
   );
 
-#pragma region RH_C_SHARED_ENUM [ON_DimStyle::stack_format] [Rhino.DocObjects.DimensionStyle.StackDisplayFormat] [nested:byte]
+///#pragma region RH_C_SHARED_ENUM [ON_DimStyle::stack_format] [Rhino.DocObjects.DimensionStyle.StackDisplayFormat] [nested:byte]
   /// <summary>
   /// Format of stacked fractions
   /// </summary>
@@ -1006,13 +1006,13 @@ public:
     /// <summary> Stack with angled line </summary>
     StackDiagonal      = 2,
   };
-#pragma endregion
+///#pragma endregion
 
   static ON_DimStyle::stack_format StackFormatFromUnsigned(
     unsigned int format_as_unsigned
   );
 
-#pragma region RH_C_SHARED_ENUM [ON_DimStyle::centermark_style] [Rhino.DocObjects.DimensionStyle.CenterMarkStyle] [nested:byte]
+///#pragma region RH_C_SHARED_ENUM [ON_DimStyle::centermark_style] [Rhino.DocObjects.DimensionStyle.CenterMarkStyle] [nested:byte]
   /// <summary>
   /// Style for drawing centermark for Radial dimensions and Centermark objects
   /// </summary>
@@ -1031,7 +1031,7 @@ public:
     /// </summary>
     MarkAndLines = 2,
   };
-#pragma endregion
+///#pragma endregion
 
   static ON_DimStyle::centermark_style CentermarkStyleFromUnsigned(
     unsigned int centermark_as_unsigned
