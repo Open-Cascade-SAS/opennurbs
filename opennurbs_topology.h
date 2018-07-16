@@ -30,7 +30,7 @@ public:
     Damaged = 0x80000000U
   };
 
-#pragma region RH_C_SHARED_ENUM [ON_ComponentAttributes::EdgeAttributes] [Rhino.Geometry.EdgeAttributes] [int]
+///#pragma region RH_C_SHARED_ENUM [ON_ComponentAttributes::EdgeAttributes] [Rhino.Geometry.EdgeAttributes] [int]
 
   /// <summary>
   /// <para>ON_EdgeAttributeFlags are used to report attributes of single edge objects, like
@@ -161,7 +161,7 @@ public:
     Mask = 0xFFFF
   };
 
-#pragma endregion
+///#pragma endregion
 
 
   /// <summary> 

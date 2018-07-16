@@ -121,7 +121,7 @@ static const wchar_t* tagendash              = L"endash";        // endash
 static const wchar_t* tagemdash              = L"emdash";        // emdash
 
 
-#pragma region TextIterator
+///#pragma region TextIterator
 
 ON_TextIterator::ON_TextIterator(const ON_wString& str)
   : m_text(str.Array())
@@ -327,9 +327,9 @@ ON__UINT32 ON_RtfParser::Internal_ParseMBCSString( const ON__UINT32 windows_code
   return count;
 }
 
-#pragma endregion TextIterator
+///#pragma endregion TextIterator
 
-#pragma region TextBuilder
+///#pragma region TextBuilder
 
 ON_TextBuilder::~ON_TextBuilder()
 {}
@@ -823,11 +823,11 @@ void ON_TextBuilder::FormatChange()
 
 }
 
-#pragma endregion  // TextBuilder
+///#pragma endregion  // TextBuilder
 
 
 
-#pragma region TextRunBuilder
+///#pragma region TextRunBuilder
 
 ON_TextRunBuilder::~ON_TextRunBuilder()
 {}
@@ -1672,11 +1672,11 @@ void ON_TextRunBuilder::UniDest(const wchar_t* value)
   // unicode destination
 }
 
-#pragma endregion  // TextRunBuilder
+///#pragma endregion  // TextRunBuilder
 
 
 
-#pragma region RtfStringBuilder
+///#pragma region RtfStringBuilder
 
 ON_RtfStringBuilder::~ON_RtfStringBuilder()
 {}
@@ -2268,13 +2268,13 @@ bool ON_RtfStringBuilder::AppendCodePoint(ON__UINT32 codept)
 
 
 
-#pragma endregion  // RtfStringBuilder
+///#pragma endregion  // RtfStringBuilder
 
 
 
 #ifdef RTFFIRSTCHAR
 
-#pragma region RtfFirstChar
+///#pragma region RtfFirstChar
 
 ON_RtfFirstChar::~ON_RtfFirstChar()
 {}
@@ -2526,7 +2526,7 @@ void ON_RtfFirstChar::Strikethrough(const wchar_t* value)
 
 
 
-#pragma endregion  // RtfFirstChar
+///#pragma endregion  // RtfFirstChar
 
 #endif // RTFFIRSTCHAR
 

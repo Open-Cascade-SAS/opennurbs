@@ -230,8 +230,10 @@ public:
 
 private:
 
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_PUSH
 #pragma ON_PRAGMA_WARNING_DISABLE_MSC( 4251 ) 
+#endif
   // C4251: ... needs to have dll-interface to be used by clients of class ...
   // m_geometry_sp is private and all code that manages m_sp is explicitly implemented in the DLL.
   // m_attributes_sp is private and all code that manages m_sp is explicitly implemented in the DLL.
@@ -239,7 +241,9 @@ private:
   std::shared_ptr<ON_Geometry> m_geometry_sp;
 private:
   std::shared_ptr<ON_3dmObjectAttributes> m_attributes_sp;
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_POP
+#endif
 };
 
 #if defined(ON_DLL_TEMPLATE)

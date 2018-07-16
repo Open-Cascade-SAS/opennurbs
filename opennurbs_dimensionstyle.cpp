@@ -27,7 +27,7 @@
 // obsolete V5 dimension style
 #include "opennurbs_internal_V5_dimstyle.h"
 
-#pragma region DimStyleContext
+///#pragma region DimStyleContext
 
 ON_DimStyleContext::~ON_DimStyleContext()
 {};
@@ -156,10 +156,10 @@ const ON_DimStyle* ON_DimStyleContext::PrevDimStyle(
 }
 
 
-#pragma endregion DimStyleContext
+///#pragma endregion DimStyleContext
 
 
-#pragma region Arrowheads
+///#pragma region Arrowheads
 
 bool ON_Arrowhead::operator!=(const ON_Arrowhead& other) const
 {
@@ -836,9 +836,9 @@ bool ON_Arrowhead::GetArrowheadBoundingBox(
 }
 
 
-#pragma endregion Arrowheads
+///#pragma endregion Arrowheads
 
-#pragma region TextMask
+///#pragma region TextMask
 
 const ON_SHA1_Hash& ON_TextMask::ContentHash() const
 {
@@ -1063,7 +1063,7 @@ bool ON_TextMask::Read(
   return rc;
 }
 
-#pragma endregion TextMask
+///#pragma endregion TextMask
 
 
 
@@ -1078,7 +1078,7 @@ const ON_DimStyle* ON_DimStyle::FromModelComponentRef(
   return (nullptr != p) ? p : none_return_value;
 }
 
-#pragma region Legacy dimstyle conversions
+///#pragma region Legacy dimstyle conversions
 // convert ON_DimStyle::OBSOLETE_length_format enum to ON::OBSOLETE_DistanceDisplayMode enum
 ON::OBSOLETE_DistanceDisplayMode ON_DimStyle::DistanceDisplayModeFromLengthFormat(
   ON_DimStyle::OBSOLETE_length_format lf
@@ -1925,7 +1925,7 @@ ON_V5x_DimStyle::ON_V5x_DimStyle(
 }
 
 
-#pragma endregion Legacy dimstyle conversions
+///#pragma endregion Legacy dimstyle conversions
 
 unsigned int ON_DimStyle::Internal_GetSystemDimstyleList(
   ON_SimpleArray<const ON_DimStyle*>& system_dimstyle_list

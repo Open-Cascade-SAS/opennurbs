@@ -1346,8 +1346,10 @@ private:
   // A map used to lookup by serial number.
   ON_SerialNumberMap m_mcr_sn_map;
   ON_FixedSizePool m_mcr_link_fsp;
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_PUSH
 #pragma ON_PRAGMA_WARNING_DISABLE_MSC( 4251 ) 
+#endif
   // C4251: ... needs to have dll-interface to be used by clients of class ...
   // This warning is not correct. 
   // m_mcr_lists is private and all code that manages m_mcr_lists is explicitly implemented in the DLL.
@@ -1366,7 +1368,9 @@ private:
   ONX_ModelComponentList m_mcr_lists[ONX_MCR_LIST_COUNT];
   const ONX_ModelComponentList& Internal_ComponentListConst(ON_ModelComponent::Type component_type) const;
   ONX_ModelComponentList& Internal_ComponentList(ON_ModelComponent::Type component_type);
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_POP
+#endif
 
 public:
   bool ValdateComponentIdAndName(
@@ -1680,7 +1684,7 @@ public:
 
 public:
 
-#pragma region // XXRH_C_SHARED_ENUM // [ONX_ModelTest::Type] [Rhino.Geometry.Something.Type] [nested:byte]
+///#pragma region // XXRH_C_SHARED_ENUM // [ONX_ModelTest::Type] [Rhino.Geometry.Something.Type] [nested:byte]
   /// <summary>
   /// ONX_ModelTest::Type identifies the type of file reading test to perform.
   /// </summary>
@@ -1718,12 +1722,12 @@ public:
     ///</summary>
     ReadWriteReadCompare = 4
   };
-#pragma endregion
+///#pragma endregion
 
   static const char* TestTypeToString(ONX_ModelTest::Type test_type);
   static const wchar_t* TestTypeToWideString(ONX_ModelTest::Type test_type);
 
-#pragma region // XXRH_C_SHARED_ENUM // [ONX_ModelTest::Result] [Rhino.Geometry.Something.Result] [nested:byte]
+///#pragma region // XXRH_C_SHARED_ENUM // [ONX_ModelTest::Result] [Rhino.Geometry.Something.Result] [nested:byte]
   /// <summary>
   /// ONX_ModelTest::Result reports the result of a test.
   /// </summary>
@@ -1766,7 +1770,7 @@ public:
     ///</summary>
     Skip = 5,
   };
-#pragma endregion
+///#pragma endregion
 
   static const char* ResultToString(ONX_ModelTest::Result result);
   static const wchar_t* ResultToWideString(ONX_ModelTest::Result result);
@@ -2084,8 +2088,10 @@ public:
   ONX_ErrorCounter m_error_count;
   ONX_ErrorCounter m_error_counts[7];
 
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_PUSH
 #pragma ON_PRAGMA_WARNING_DISABLE_MSC( 4251 ) 
+#endif
   // C4251: ... : class 'std::shared_ptr<ON_MeshThicknessAnalysisImpl>' 
   //        needs to have dll-interface to be used by clients ...
   // m_model[] is private and all code that manages m_sp is explicitly implemented in the DLL.
@@ -2094,7 +2100,9 @@ public:
   // m_model[1] = model[0] -> write to current 3dm version -> read into model[1]
   // m_model[2] = model[0] -> write to prev 3dm version -> read into model[2]
   std::shared_ptr<ONX_Model> m_model[3];
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_POP
+#endif
 
   // m_model_hash[i] = m_model[0].Hash()
   ON_SHA1_Hash m_model_hash[3];

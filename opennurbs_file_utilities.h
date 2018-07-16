@@ -1237,7 +1237,7 @@ class ON_CLASS ON_FileReference
 public:
   static const ON_FileReference Unset;
 
-#pragma region RH_C_SHARED_ENUM [ON_FileReference::Status] [Rhino.FileIO.FileReferenceStatus] [int]
+///#pragma region RH_C_SHARED_ENUM [ON_FileReference::Status] [Rhino.FileIO.FileReferenceStatus] [int]
   ///<summary>Enumerates a list of file statuses.</summary>
   enum class Status : unsigned int
   {
@@ -1256,7 +1256,7 @@ public:
     /// </summary>
     FileNotFound = 2 
   };
-#pragma endregion
+///#pragma endregion
 
   static int Compare(
     const ON_FileReference& a,
@@ -1285,7 +1285,7 @@ public:
     bool bSetFullPathStatus
     );
 
-#pragma region RH_C_SHARED_ENUM [ON_FileReference::FindFilePreference] [Rhino.FileIO.FileFindPreference] [int]
+///#pragma region RH_C_SHARED_ENUM [ON_FileReference::FindFilePreference] [Rhino.FileIO.FileFindPreference] [int]
   ///<summary>Defines options for file search.</summary>
   enum class FindFilePreference : unsigned char
   {
@@ -1307,7 +1307,7 @@ public:
     ///<summary>Most recently modifed file.</summary>
     MostRecent = 5
   };
-#pragma endregion
+///#pragma endregion
 
   /*
   Description:

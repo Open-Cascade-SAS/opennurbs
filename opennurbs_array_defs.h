@@ -17,6 +17,7 @@
 #if !defined(ON_ARRAY_DEFS_INC_)
 #define ON_ARRAY_DEFS_INC_
 
+#ifdef _MSC_VER
 // When this file is parsed with /W4 warnings, two bogus warnings
 // are generated.
 #pragma ON_PRAGMA_WARNING_PUSH
@@ -35,6 +36,7 @@
 // when static functions are declared before they are defined in a 
 // single .cpp file. This pragma is needed squelch the bogus warning.
 #pragma ON_PRAGMA_WARNING_DISABLE_MSC(4211)
+#endif
 
 // The main reason the definitions of the functions for the 
 // ON_SimpleArray and ON_ClassArray templates are in this separate
@@ -2001,6 +2003,8 @@ int ON_CompareDecreasing( const T* a, const T* b)
 	return 0;
 }
 
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_POP
+#endif
 
 #endif

@@ -23,7 +23,7 @@
 #error ON_COMPILING_OPENNURBS must be defined when compiling opennurbs
 #endif
 
-#pragma region DistanceFormat
+///#pragma region DistanceFormat
 
 void ON_NumberFormatter::Fraction(double value_in, int& wholenumber, int& numerator, int& denominator, int precision)
 {
@@ -370,9 +370,9 @@ bool ON_NumberFormatter::FormatLength(
     output);
 }
 
-#pragma endregion DistanceFormat
+///#pragma endregion DistanceFormat
 
-#pragma region AngleFormat
+///#pragma region AngleFormat
 
 
 bool ON_NumberFormatter::FormatAngleStringDMS(double angle_radians, ON_wString& formatted_string)
@@ -494,4 +494,4 @@ bool ON_NumberFormatter::FormatAngleStringDecimal(
 
 
 
-#pragma endregion
+///#pragma endregion

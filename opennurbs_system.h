@@ -114,7 +114,7 @@
 
 #include "opennurbs_system_runtime.h"
 
-#pragma ON_PRAGMA_WARNING_PUSH
+///#pragma ON_PRAGMA_WARNING_PUSH
 
 /* compiler choice */
 #if defined(ON_COMPILER_MSC)
@@ -422,146 +422,67 @@ typedef ON__UINT32 wchar_t;
 
 #endif
 
-#pragma ON_PRAGMA_WARNING_BEFORE_DIRTY_INCLUDE
 #include <stdlib.h>
-#pragma ON_PRAGMA_WARNING_AFTER_DIRTY_INCLUDE
-
-#pragma ON_PRAGMA_WARNING_BEFORE_DIRTY_INCLUDE
 #include <memory.h>
-#pragma ON_PRAGMA_WARNING_AFTER_DIRTY_INCLUDE
 
-#pragma ON_PRAGMA_WARNING_BEFORE_DIRTY_INCLUDE
 #if defined(ON_COMPILER_CLANG) && defined(ON_RUNTIME_APPLE)
 #include <malloc/malloc.h>
 #else
 #include <malloc.h>
 #endif
-#pragma ON_PRAGMA_WARNING_AFTER_DIRTY_INCLUDE
 
-#pragma ON_PRAGMA_WARNING_BEFORE_DIRTY_INCLUDE
 #include <string.h>
-#pragma ON_PRAGMA_WARNING_AFTER_DIRTY_INCLUDE
-
-#pragma ON_PRAGMA_WARNING_BEFORE_DIRTY_INCLUDE
 #include <math.h>
-#pragma ON_PRAGMA_WARNING_AFTER_DIRTY_INCLUDE
-
-#pragma ON_PRAGMA_WARNING_BEFORE_DIRTY_INCLUDE
 #include <stdio.h>
-#pragma ON_PRAGMA_WARNING_AFTER_DIRTY_INCLUDE
-
-#pragma ON_PRAGMA_WARNING_BEFORE_DIRTY_INCLUDE
 #include <stdarg.h>
-#pragma ON_PRAGMA_WARNING_AFTER_DIRTY_INCLUDE
-
-#pragma ON_PRAGMA_WARNING_BEFORE_DIRTY_INCLUDE
 #include <float.h>
-#pragma ON_PRAGMA_WARNING_AFTER_DIRTY_INCLUDE
-
-#pragma ON_PRAGMA_WARNING_BEFORE_DIRTY_INCLUDE
 #include <time.h>
-#pragma ON_PRAGMA_WARNING_AFTER_DIRTY_INCLUDE
-
-#pragma ON_PRAGMA_WARNING_BEFORE_DIRTY_INCLUDE
 #include <limits.h>
-#pragma ON_PRAGMA_WARNING_AFTER_DIRTY_INCLUDE
-
-#pragma ON_PRAGMA_WARNING_BEFORE_DIRTY_INCLUDE
 #include <ctype.h>
-#pragma ON_PRAGMA_WARNING_AFTER_DIRTY_INCLUDE
 
 #if defined(ON_COMPILER_IRIX)
-#pragma ON_PRAGMA_WARNING_BEFORE_DIRTY_INCLUDE
 #include <alloca.h>
-#pragma ON_PRAGMA_WARNING_AFTER_DIRTY_INCLUDE
-
 #endif
 
 #if !defined(ON_COMPILER_BORLANDC)
-#pragma ON_PRAGMA_WARNING_BEFORE_DIRTY_INCLUDE
 #include <wchar.h>
-#pragma ON_PRAGMA_WARNING_AFTER_DIRTY_INCLUDE
-
 #endif
 
 #if defined(ON_COMPILER_MSC)
-#pragma ON_PRAGMA_WARNING_BEFORE_DIRTY_INCLUDE
 #include <io.h>
-#pragma ON_PRAGMA_WARNING_AFTER_DIRTY_INCLUDE
-
-#pragma ON_PRAGMA_WARNING_BEFORE_DIRTY_INCLUDE
 #include <sys/stat.h>
-#pragma ON_PRAGMA_WARNING_AFTER_DIRTY_INCLUDE
-
-#pragma ON_PRAGMA_WARNING_BEFORE_DIRTY_INCLUDE
 #include <tchar.h>
-#pragma ON_PRAGMA_WARNING_AFTER_DIRTY_INCLUDE
-
-#pragma ON_PRAGMA_WARNING_BEFORE_DIRTY_INCLUDE
 #include <Rpc.h>
-#pragma ON_PRAGMA_WARNING_AFTER_DIRTY_INCLUDE
-
 #endif
 
 #if defined(ON_COMPILER_GNU)
-#pragma ON_PRAGMA_WARNING_BEFORE_DIRTY_INCLUDE
 #include <sys/types.h>
-#pragma ON_PRAGMA_WARNING_AFTER_DIRTY_INCLUDE
-
-#pragma ON_PRAGMA_WARNING_BEFORE_DIRTY_INCLUDE
 #include <sys/stat.h>
-#pragma ON_PRAGMA_WARNING_AFTER_DIRTY_INCLUDE
-
-#pragma ON_PRAGMA_WARNING_BEFORE_DIRTY_INCLUDE
 #include <wctype.h>
-#pragma ON_PRAGMA_WARNING_AFTER_DIRTY_INCLUDE
-
-#pragma ON_PRAGMA_WARNING_BEFORE_DIRTY_INCLUDE
 #include <dirent.h>
-#pragma ON_PRAGMA_WARNING_AFTER_DIRTY_INCLUDE
-
 #endif
 
 #if defined(ON_COMPILER_CLANG)
-#pragma ON_PRAGMA_WARNING_BEFORE_DIRTY_INCLUDE
 #include <sys/types.h>
-#pragma ON_PRAGMA_WARNING_AFTER_DIRTY_INCLUDE
-
-#pragma ON_PRAGMA_WARNING_BEFORE_DIRTY_INCLUDE
 #include <sys/stat.h>
-#pragma ON_PRAGMA_WARNING_AFTER_DIRTY_INCLUDE
-
-#pragma ON_PRAGMA_WARNING_BEFORE_DIRTY_INCLUDE
 #include <wctype.h>
-#pragma ON_PRAGMA_WARNING_AFTER_DIRTY_INCLUDE
-
-#pragma ON_PRAGMA_WARNING_BEFORE_DIRTY_INCLUDE
 #include <dirent.h>
-#pragma ON_PRAGMA_WARNING_AFTER_DIRTY_INCLUDE
 
-#pragma ON_PRAGMA_WARNING_BEFORE_DIRTY_INCLUDE
+
+
 #if defined(ON_RUNTIME_ANDROID) || defined(ON_RUNTIME_LINUX)
 #include "android_uuid/uuid.h"
 #else
 #include <uuid/uuid.h>
 #endif
-#pragma ON_PRAGMA_WARNING_AFTER_DIRTY_INCLUDE
-
 #endif
 
-#pragma ON_PRAGMA_WARNING_BEFORE_DIRTY_INCLUDE
 #include <errno.h>
-#pragma ON_PRAGMA_WARNING_AFTER_DIRTY_INCLUDE
-
-#pragma ON_PRAGMA_WARNING_BEFORE_DIRTY_INCLUDE
 // For definition of PRIu64 to print 64-bit ints portably.
 #include <inttypes.h>
 #if !defined(PRIu64)
 #error no PRIu64
 #endif
-
-#pragma ON_PRAGMA_WARNING_AFTER_DIRTY_INCLUDE
-
 
 #if defined (cplusplus) || defined(_cplusplus) || defined(__cplusplus)
 // C++ system includes
@@ -571,45 +492,29 @@ typedef ON__UINT32 wchar_t;
 #endif
 
 // Standard C++ tools
-#pragma ON_PRAGMA_WARNING_BEFORE_DIRTY_INCLUDE
 #include <new>     // for declaration of placement versions of new used in ON_ClassArray<>.
-#pragma ON_PRAGMA_WARNING_AFTER_DIRTY_INCLUDE
-
-#pragma ON_PRAGMA_WARNING_BEFORE_DIRTY_INCLUDE
 #include <memory>  // for std::shared_ptr
-#pragma ON_PRAGMA_WARNING_AFTER_DIRTY_INCLUDE
-
-#pragma ON_PRAGMA_WARNING_BEFORE_DIRTY_INCLUDE
 #include <utility> // std::move
-#pragma ON_PRAGMA_WARNING_AFTER_DIRTY_INCLUDE
-
-#pragma ON_PRAGMA_WARNING_BEFORE_DIRTY_INCLUDE
 #include <string>  // std::string, std::wstring
-#pragma ON_PRAGMA_WARNING_AFTER_DIRTY_INCLUDE
-
-#pragma ON_PRAGMA_WARNING_BEFORE_DIRTY_INCLUDE
 #include <locale>  // for call create_locale(LC_ALL,"C") in ON_Locale().
-#pragma ON_PRAGMA_WARNING_AFTER_DIRTY_INCLUDE
-
-#pragma ON_PRAGMA_WARNING_BEFORE_DIRTY_INCLUDE
 #include <atomic>  // for std:atomic<type>
-#pragma ON_PRAGMA_WARNING_AFTER_DIRTY_INCLUDE
 
-#pragma ON_PRAGMA_WARNING_BEFORE_DIRTY_INCLUDE
+
+
 #include <chrono>  // for std:chrono::high_resolution_clock
-#pragma ON_PRAGMA_WARNING_AFTER_DIRTY_INCLUDE
 
-#pragma ON_PRAGMA_WARNING_BEFORE_DIRTY_INCLUDE
+
+
 #if !defined(OPENNURBS_NO_STD_THREAD)
 #include <thread>  // for std::this_thread::sleep_for
 #endif
-#pragma ON_PRAGMA_WARNING_AFTER_DIRTY_INCLUDE
 
-#pragma ON_PRAGMA_WARNING_BEFORE_DIRTY_INCLUDE
+
+
 #if !defined(OPENNURBS_NO_STD_MUTEX)
 #include <mutex>  // for std:mutex
 #endif
-#pragma ON_PRAGMA_WARNING_AFTER_DIRTY_INCLUDE
+
 
 
 #define ON_NO_SHARED_PTR_DTOR(T) [=](T*){}
@@ -620,14 +525,8 @@ typedef ON__UINT32 wchar_t;
 
 
 #if defined(ON_COMPILER_CLANG)
-#pragma ON_PRAGMA_WARNING_BEFORE_DIRTY_INCLUDE
 #include <wchar.h>
-#pragma ON_PRAGMA_WARNING_AFTER_DIRTY_INCLUDE
-
-#pragma ON_PRAGMA_WARNING_BEFORE_DIRTY_INCLUDE
 #include <xlocale.h>
-#pragma ON_PRAGMA_WARNING_AFTER_DIRTY_INCLUDE
-
 #endif
 
 #if defined(ON_RUNTIME_APPLE_OBJECTIVE_C_AVAILABLE)
@@ -635,10 +534,7 @@ typedef ON__UINT32 wchar_t;
 // int the ON_Font and freetype internals.
 // When ON_RUNTIME_APPLE_OBJECTIVE_C_AVAILABLE is defined, you
 // must link with the Apple Cocoa Framework.
-#pragma ON_PRAGMA_WARNING_BEFORE_DIRTY_INCLUDE
 #include <Cocoa/Cocoa.h>
-#pragma ON_PRAGMA_WARNING_AFTER_DIRTY_INCLUDE
-
 #endif
 #endif
 
@@ -749,7 +645,7 @@ typedef ON__UINT32 wchar_t;
 #define OPENNURBS__FUNCTION__ ""
 #endif
 
-#pragma ON_PRAGMA_WARNING_POP
+///#pragma ON_PRAGMA_WARNING_POP
 
 
 #endif

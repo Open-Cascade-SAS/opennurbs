@@ -241,7 +241,7 @@
 #endif
 #endif
 
-#pragma ON_PRAGMA_WARNING_BEFORE_DIRTY_INCLUDE
+//#pragma ON_PRAGMA_WARNING_BEFORE_DIRTY_INCLUDE
 // Angle brackets must be used in the ft2build.h include because
 // that's what the freetype defined includes like FT_FREETYPE_H
 // use and they must work. If you get a compiler (CLang) error telling you
@@ -250,7 +250,7 @@
 // path for opennurbs_freetype.cpp.
 #include <ft2build.h>
 #include FT_FREETYPE_H
-#pragma ON_PRAGMA_WARNING_AFTER_DIRTY_INCLUDE
+//#pragma ON_PRAGMA_WARNING_AFTER_DIRTY_INCLUDE
 
 #if defined(ON_COMPILER_MSC)
 

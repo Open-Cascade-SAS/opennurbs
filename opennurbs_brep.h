@@ -187,9 +187,11 @@ Description:
 // are widely used. At some point the functionON_Brep::Trim() will be deprecated and the 4263
 // warning ON_Brep::Trim(int) generates will be disabled for the definition of class ON_BrepEdge.
 // In version 7, ON_Brep::Trim(int) will be deleted and the warning will no longer be disabled.
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_PUSH
 #pragma ON_PRAGMA_WARNING_DISABLE_MSC(4263)
 #pragma ON_PRAGMA_WARNING_DISABLE_MSC(4264)
+#endif
 
 class ON_CLASS ON_BrepEdge : public  ON_CurveProxy
 {
@@ -379,7 +381,9 @@ private:
   ON_BrepEdge( const ON_BrepEdge& ) = delete;
 };
 
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_POP
+#endif
 
 struct ON_BrepTrimPoint
 {

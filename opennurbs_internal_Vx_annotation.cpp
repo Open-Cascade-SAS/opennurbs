@@ -34,7 +34,7 @@
 //
 // text justification 
 //
-#pragma region
+///#pragma region
 
 ON::TextVerticalAlignment ON::TextVerticalAlignmentFromV5Justification(
   unsigned int v5_justification_bits
@@ -78,13 +78,13 @@ ON::TextHorizontalAlignment ON::TextHorizontalAlignmentFromV5Justification(
 }
 
 
-#pragma endregion
+///#pragma endregion
 
 /////////////////////////////////////////////////////////////////////////////
 //
 // annotation base class
 //
-#pragma region
+///#pragma region
 
 ON_Annotation* ON_Annotation::CreateFromV2Annotation(
   const class ON_OBSOLETE_V2_Annotation& V2_annotation,
@@ -272,13 +272,13 @@ void ON_OBSOLETE_V5_Annotation::Internal_InitializeFromV2Annotation(
   SetV5_3dmArchiveDimStyleIndex(annotation_context->V5_ArchiveDimStyleIndex());
 }
 
-#pragma endregion
+///#pragma endregion
 
 /////////////////////////////////////////////////////////////////////////////
 //
 // text object
 //
-#pragma region
+///#pragma region
 
 void ON_Text::Internal_SetObsoleteV5TextObjectInformation(
   const class ON_3dmAnnotationContext* annotation_context,
@@ -762,13 +762,13 @@ ON_OBSOLETE_V5_TextObject* ON_OBSOLETE_V5_TextObject::CreateFromV2TextObject(
 
 }
 
-#pragma endregion
+///#pragma endregion
 
 /////////////////////////////////////////////////////////////////////////////
 //
 // leader
 //
-#pragma region
+///#pragma region
 
 ON_Leader* ON_Leader::CreateFromV5Leader(
   const class ON_OBSOLETE_V5_Leader& V5_leader,
@@ -962,13 +962,13 @@ ON_OBSOLETE_V5_Leader* ON_OBSOLETE_V5_Leader::CreateFromV2Leader(
   return V5_leader;
 }
 
-#pragma endregion
+///#pragma endregion
 
 /////////////////////////////////////////////////////////////////////////////
 //
 // linear dimension
 //
-#pragma region
+///#pragma region
 
 ON_OBSOLETE_V5_DimLinear* ON_OBSOLETE_V5_DimLinear::CreateFromV6DimLinear(
     const class ON_DimLinear& V6_dim_linear,
@@ -1082,13 +1082,13 @@ ON_DimLinear* ON_DimLinear::CreateFromV5DimLinear(
   return V6_dim_linear;
 }
 
-#pragma endregion
+///#pragma endregion
 
 /////////////////////////////////////////////////////////////////////////////
 //
 // angular dimension
 //
-#pragma region
+///#pragma region
 
 ON_OBSOLETE_V5_DimAngular* ON_OBSOLETE_V5_DimAngular::CreateFromV6DimAngular(
     const class ON_DimAngular& V6_dim_angular,
@@ -1185,14 +1185,14 @@ ON_DimAngular* ON_DimAngular::CreateFromV5DimAngular(
   return V6_dim_angle;
 }
 
-#pragma endregion
+///#pragma endregion
 
 
 /////////////////////////////////////////////////////////////////////////////
 //
 // radial dimension
 //
-#pragma region
+///#pragma region
 ON_OBSOLETE_V5_DimRadial* ON_OBSOLETE_V5_DimRadial::CreateFromV6DimRadial(
   const class ON_DimRadial& V6_dim_radial,
   const class ON_3dmAnnotationContext* annotation_context,
@@ -1319,13 +1319,13 @@ ON_DimRadial* ON_DimRadial::CreateFromV5DimRadial(
   return V6_dim_radial;
 }
 
-#pragma endregion
+///#pragma endregion
 
 /////////////////////////////////////////////////////////////////////////////
 //
 // ordinate dimension
 //
-#pragma region
+///#pragma region
 
 ON_OBSOLETE_V5_DimOrdinate* ON_OBSOLETE_V5_DimOrdinate::CreateFromV6DimOrdinate(
   const class ON_DimOrdinate& V6_dim_ordinate,
@@ -1449,4 +1449,4 @@ ON_DimOrdinate* ON_DimOrdinate::CreateFromV5DimOrdinate(
   return V6_dim_ordinate;
 }
 
-#pragma endregion
+///#pragma endregion

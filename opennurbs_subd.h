@@ -2402,7 +2402,7 @@ public:
   static const ON_SubDFromSurfaceParameters ControlNet;
   static const ON_SubDFromSurfaceParameters ControlNetWithCorners;
 
-#pragma region RH_C_SHARED_ENUM [ON_SubDFromSurfaceParameters::Methods] [Rhino.Geometry.SubDFromSurfaceMethods] [byte]
+///#pragma region RH_C_SHARED_ENUM [ON_SubDFromSurfaceParameters::Methods] [Rhino.Geometry.SubDFromSurfaceMethods] [byte]
   /// <summary>
   /// ON_SubDFromSurfaceParameters::Method are ways to create a SubD from a surface.
   /// </summary>
@@ -2427,7 +2427,7 @@ public:
     /// </summary>
     FromNurbsControlNet = 2
   };
-#pragma endregion
+///#pragma endregion
 
   ON_SubDFromSurfaceParameters::Methods Method() const;
 
@@ -2689,7 +2689,7 @@ public:
   //  unsigned int vertex_edge_order_as_unsigned
   //  );
 
-#pragma region RH_C_SHARED_ENUM [ON_SubD::VertexFacetType] [Rhino.Geometry.SubDVertexFacetType] [byte]
+///#pragma region RH_C_SHARED_ENUM [ON_SubD::VertexFacetType] [Rhino.Geometry.SubDVertexFacetType] [byte]
   /// <summary>
   /// Summarizes the number of edges in faces in the whole object.
   /// </summary>
@@ -2710,13 +2710,13 @@ public:
     ///<summary>Edge count of faces is not constant.</summary>
     Mixed = 0xFF 
   };
-#pragma endregion
+///#pragma endregion
 
   static ON_SubD::VertexFacetType VertexFacetTypeFromUnsigned( 
     unsigned int vertex_facet_type_as_unsigned
     );
   
-#pragma region RH_C_SHARED_ENUM [ON_SubD::ChainType] [Rhino.Geometry.SubDChainType] [byte]
+///#pragma region RH_C_SHARED_ENUM [ON_SubD::ChainType] [Rhino.Geometry.SubDChainType] [byte]
   /// <summary>
   /// SubD::ChainType specifies what edge and vertex tag tests are used when creating edge chains.
   /// </summary>
@@ -2760,7 +2760,7 @@ public:
     ///</summary>
     EqualEdgeAndVertexTagAndOrdinary = 5
   };
-#pragma endregion
+///#pragma endregion
 
   /*
   Parameters:
@@ -5949,13 +5949,17 @@ public:
 
 private:
   friend class ON_SubDRef;
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_PUSH
 #pragma ON_PRAGMA_WARNING_DISABLE_MSC( 4251 ) 
+#endif
   // C4251: ... needs to have dll-interface to be used by clients of class ...
   // m_subdimple_sp is private and all code that manages m_subdimple_sp is explicitly implemented in the DLL.
 private:
   std::shared_ptr<class ON_SubDimple> m_subdimple_sp;
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_POP
+#endif
 
 public:
   // The ON_SubD code increments ON_SubD::ErrorCount everytime something
@@ -6101,13 +6105,17 @@ private:
     );
   
 private:
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_PUSH
 #pragma ON_PRAGMA_WARNING_DISABLE_MSC( 4251 ) 
+#endif
   // C4251: ... needs to have dll-interface to be used by clients of class ...
   // m_subd_sp is private and all code that manages m_subd_sp is explicitly implemented in the DLL.
 private:
   std::shared_ptr<class ON_SubD> m_subd_sp;
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_POP
+#endif
 };
 
 //////////////////////////////////////////////////////////////////////////
@@ -9225,19 +9233,57 @@ public:
   unsigned int SubLimpleUseCount() const;
 
 private:
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_PUSH
 #pragma ON_PRAGMA_WARNING_DISABLE_MSC( 4251 ) 
+#endif
   friend class ON_SubDMeshImpl;
   // C4251: ... needs to have dll-interface to be used by clients of class ...
   // m_impl_sp is private and all code that manages m_impl_sp is explicitly implemented in the DLL.
 private:
   std::shared_ptr< class ON_SubDMeshImpl > m_impl_sp;
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_POP
+#endif
+};
 
 };
 
+public:
+  double m_patch_cv[5][5][3];
+  const double* m_patch_knots[2]; // nullptr or 7 uniform cubic knots. Never modify these values.
 
-class ON_CLASS ON_SubDSectorSurfacePoint
+  const class ON_SubDFace* m_level0_face;
+
+
+  // m_patch_state[] reports what information is returned in m_patch_cv[] and m_patch_knots[].
+  // m_patch_state[0] report the state for the cubic patch:
+  //   CV[0][0] = m_patch_cv[0][0], knot[0] = m_patch_knots[0],   knot[1] = m_patch_knots[1]
+  // m_patch_state[1] report the state for the cubic patch:
+  //   CV[0][0] = m_patch_cv[1][0], knot[0] = m_patch_knots[0]+1, knot[1] = m_patch_knots[1]
+  // m_patch_state[2] report the state for the cubic patch:
+  //   CV[0][0] = m_patch_cv[1][1], knot[0] = m_patch_knots[0]+1, knot[1] = m_patch_knots[1]+1
+  // m_patch_state[3] report the state for the cubic patch:
+  //   CV[0][0] = m_patch_cv[0][1], knot[0] = m_patch_knots[0],   knot[1] = m_patch_knots[1]+1
+  ON_SubDLimitPatchFragment::PatchType m_patch_type[4];
+
+  unsigned short m_patch_level;
+
+  // When the subdivision method is quad based and m_face is a quad, there is one region.
+  // When the subdivision method is quad based and m_face is not a quad, there are m_face->m_edge_count regions.
+  unsigned short m_level0_face_region_count; // Number of regions in m_face.
+  unsigned short m_level0_face_region_index; // First region has index = 0. Last region has index = m_face_region_count-1.
+
+  unsigned short m_face_subdivision_count;
+  unsigned short m_face_region_index[10];  // vertex index for subdivision
+
+public:
+  ON_SubDLimitPatchFragment* m_next_fragment;
+  ON_SubDLimitPatchFragment* m_prev_fragment;
+};
+
+
+class ON_SUBD_CLASS ON_SubDSectorLimitPoint
 {
 public:
   // For performance reasons, the default the data members are
@@ -12229,13 +12275,17 @@ private:
   const class ON_SubDVertex*const* m_a = nullptr;
   unsigned int m_vertex_count = 0;
 
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_PUSH
 #pragma ON_PRAGMA_WARNING_DISABLE_MSC( 4251 )
+#endif
   // C4251: ... needs to have dll-interface to be used by clients of class ...
   // m_sp is private and all code that manages m_sp is explicitly implemented in the DLL.
 private:
   std::shared_ptr< const class ON_SubDVertex* > m_sp;
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_POP
+#endif
 };
 
 //////////////////////////////////////////////////////////////////////////
@@ -12285,13 +12335,17 @@ private:
   const class ON_SubDEdge*const* m_a = nullptr;
   unsigned int m_edge_count = 0;
 
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_PUSH
 #pragma ON_PRAGMA_WARNING_DISABLE_MSC( 4251 )
+#endif
   // C4251: ... needs to have dll-interface to be used by clients of class ...
   // m_sp is private and all code that manages m_sp is explicitly implemented in the DLL.
 private:
   std::shared_ptr< const class ON_SubDEdge* > m_sp;
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_POP
+#endif
 };
 
 //////////////////////////////////////////////////////////////////////////
@@ -12340,14 +12394,18 @@ private:
   ON_SubD m_subd;
   const class ON_SubDFace*const* m_a = nullptr;
   unsigned int m_face_count = 0;
-  
+
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_PUSH
 #pragma ON_PRAGMA_WARNING_DISABLE_MSC( 4251 )
+#endif
   // C4251: ... needs to have dll-interface to be used by clients of class ...
   // m_sp is private and all code that manages m_sp is explicitly implemented in the DLL.
 private:
   std::shared_ptr< const class ON_SubDFace* > m_sp;
+#ifdef _MSC_VER
 #pragma ON_PRAGMA_WARNING_POP
+#endif
 };
 
 //////////////////////////////////////////////////////////////////////////
@@ -13890,7 +13948,7 @@ public:
   //
   // Custom interior crease options
   //
-#pragma region RH_C_SHARED_ENUM [ON_SubDFromMeshParameters::InteriorCreaseOption] [Rhino.Geometry.SubDCreationOptions.InteriorCreaseOption] [nested:byte]
+///#pragma region RH_C_SHARED_ENUM [ON_SubDFromMeshParameters::InteriorCreaseOption] [Rhino.Geometry.SubDCreationOptions.InteriorCreaseOption] [nested:byte]
   /// <summary>
   /// Specifies the test used to determine when an interior mesh edge generates an interior SubD creased edge.
   /// </summary>
@@ -13908,7 +13966,7 @@ public:
     ///</summary>
     AtMeshDoubleEdge = 2,
   };
-#pragma endregion
+///#pragma endregion
 
   static ON_SubDFromMeshParameters::InteriorCreaseOption InteriorCreaseOptionFromUnsigned(
     unsigned int interior_crease_option_as_unsigned
@@ -13945,7 +14003,7 @@ public:
   //
   // Convex corner options
   //
-#pragma region RH_C_SHARED_ENUM [ON_SubDFromMeshParameters::ConvexCornerOption] [Rhino.Geometry.SubDCreationOptions.ConvexCornerOption] [nested:byte]
+///#pragma region RH_C_SHARED_ENUM [ON_SubDFromMeshParameters::ConvexCornerOption] [Rhino.Geometry.SubDCreationOptions.ConvexCornerOption] [nested:byte]
   /// <summary>
   /// Defines how convex corners are treated.
   /// </summary>
@@ -13963,7 +14021,7 @@ public:
     ///</summary>
     AtMeshCorner = 2
   };
-#pragma endregion
+///#pragma endregion
 
   static ON_SubDFromMeshParameters::ConvexCornerOption ConvexCornerOptionFromUnsigned(
     unsigned int convex_corner_option_as_unsigned
