@@ -32,6 +32,10 @@
 #pragma ON_PRAGMA_WARNING_POP
 #endif
 
+#if defined(__ANDROID__) && (__ANDROID_API__ < 18)
+inline double log2(double x) { return log(x) / log(2.0); }
+#endif
+
 
 ////////////////////////////////////////////////////////////////////////
 

@@ -479,6 +479,9 @@ typedef ON__UINT32 wchar_t;
 
 #include <errno.h>
 // For definition of PRIu64 to print 64-bit ints portably.
+#ifndef __STDC_FORMAT_MACROS
+  #define __STDC_FORMAT_MACROS
+#endif
 #include <inttypes.h>
 #if !defined(PRIu64)
 #error no PRIu64
@@ -489,6 +492,10 @@ typedef ON__UINT32 wchar_t;
 
 #if !defined(ON_CPLUSPLUS)
 #define ON_CPLUSPLUS
+#endif
+
+#if defined(__ANDROID__)
+#include <android/api-level.h>
 #endif
 
 // Standard C++ tools
